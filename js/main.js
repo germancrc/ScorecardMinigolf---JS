@@ -3,6 +3,7 @@
 const players_form = document.getElementById('players_form')
 
 let array_scores = []
+let player_scores = []
 
 //FUNCIONES
 
@@ -41,7 +42,7 @@ if (document.getElementById('scores_table')) {
 				tableHtml += `<tr scope="row" id="row${i}"><td class="align-middle col-1 fw-bold">${i}</td>`
 
 				for (let j = 0; j < array_scores.length; j++) {
-					tableHtml += `<td><input class="form-control text-center" type="number" id="player${j + 1}hole${i}" min="0" max="6"></td>`
+					tableHtml += `<td><input class="form-control text-center" type="number" id="player${j + 1}hole${i}" min="0" max="6" value="0"></td>`
 				}
 
 				tableHtml += '</tr>'
@@ -50,7 +51,7 @@ if (document.getElementById('scores_table')) {
 			tableHtml += '<table class="table table-dark table-striped text-center table-sm my-4"><thead><tr><th scope="col">TOTAL</th>'
 
 			for (let i = 0; i < array_scores.length; i++) {
-				tableHtml += `<th scope="col"><td><input class="form-control text-center" id="${array_scores[i]}player" type="number" min="0" readonly></td></th>`
+				tableHtml += `<th scope="col"><td><input class="form-control text-center" id="${array_scores[i]}result" type="number" min="0" readonly></td></th>`
 			}
 
 			tableHtml += '</tbody></table>'
@@ -64,15 +65,31 @@ if (document.getElementById('scores_table')) {
 			// }
 
 			//get all input values
-			const inputElements = document.querySelectorAll('input')
+			// const inputElements = document.querySelectorAll('input')
+			// const inputIds = []
+			// inputElements.forEach((input) => {
+			// 	const id = input.getAttribute('id')
+			// 	// const value = input.value
+			// 	if (id) {
+			// 		inputIds.push(id)
+
+			// 	}
+			// })
+			// console.log(inputIds)
+
+			// Get all input elements on the page
+			const inputs = document.querySelectorAll('input')
 			const inputIds = []
-			inputElements.forEach((input) => {
-				const id = input.getAttribute('id')
+			// Loop through each input element and retrieve its id and value attributes
+			inputs.forEach((input) => {
+				const id = input.id
+				const value = input.value
 				if (id) {
-					inputIds.push(id)
+					inputIds.push(id + ' - ' + value)
+					localStorage.setItem('score', JSON.stringify(inputIds))
 				}
+				console.log(`ID: ${id}, Value: ${value}`)
 			})
-			console.log(inputIds)
 		}
 	}
 
