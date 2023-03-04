@@ -11,8 +11,12 @@ body {
 	position: relative;
 }
 
+.score_bg {
+	background-color: #212529;
+}
+
 #welcome {
-	margin-top: 16vh;
+	margin-top: 11vh;
 }
 
 .btn_shadow {
@@ -28,4 +32,35 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	/* width: 50%; */
+}
+
+/* fade in btn */
+/* .fade_in {
+	animation: fadeIn ease-in-out 0.5s;
+	animation-iteration-count: 1;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+} */
+
+.fade_in {
+	animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

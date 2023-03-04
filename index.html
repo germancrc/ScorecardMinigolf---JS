@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,10 +44,10 @@
 			<button type="button" class="btn btn-primary btn_shadow" data-bs-toggle="modal" data-bs-target="#rules_eng">Mini Golf Rules</button>
 		</div>
 
-		<div class="container">
-			<h1 class="text-center text-light fw-bold" id="welcome"></h1>
+		<div class="container fade_in">
+			<h1 class="text-center text-light fw-bold" id="welcome">Welcome!</h1>
 
-			<h4 class="my-3 text-center text-light" id="lang_picker"></h4>
+			<h4 class="my-3 text-center text-light" id="lang_picker">Please select your language</h4>
 			<select class="form-select" aria-label="Default select example" id="lang_select" onchange="change_language()">
 				<option selected value="">Select</option>
 				<option value="english">English</option>
@@ -55,13 +55,20 @@
 			</select>
 
 			<div class="mt-5">
-				<a href="/players.html" type="button" class="d-none" id="btn_continue_esp">Continuar</a>
-				<a href="/players_eng.html" type="button" class="d-none" id="btn_continue_eng">Continue</a>
+				<a href="/players.html" type="button" class="d-none" id="btn_continue_esp" onclick="goto_players_esp()">CONTINUAR</a>
+				<a href="/players_eng.html" type="button" class="d-none" id="btn_continue_eng" onclick="goto_players_eng()">CONTINUE</a>
 			</div>
 		</div>
 
 		<!-- Modal reglas español -->
-		<div class="modal fade" id="rules_esp" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rules_espLabel" aria-hidden="true">
+		<div
+			class="modal fade"
+			data-bs-theme="dark"
+			id="rules_esp"
+			data-bs-keyboard="false"
+			tabindex="-1"
+			aria-labelledby="rules_espLabel"
+			aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -111,7 +118,7 @@
 						deleniti fugiat? Iure, voluptate repellendus.
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary " data-bs-dismiss="modal">CLOSE</button>
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">CLOSE</button>
 					</div>
 				</div>
 			</div>

@@ -29,11 +29,11 @@ function change_language() {
 	let idioma = document.getElementById('lang_select').value
 
 	if (idioma == 'español') {
-		espanol.className = 'btn btn-primary d-block btn_shadow'
+		espanol.className = 'btn btn-primary d-block btn_shadow fade_in'
 		ingles.className = 'btn btn-primary d-none'
 	} else if (idioma == 'english') {
 		espanol.className = 'btn btn-primary d-none'
-		ingles.className = 'btn btn-primary d-block btn_shadow'
+		ingles.className = 'btn btn-primary d-block btn_shadow fade_in'
 	} else {
 		espanol.className = 'btn btn-primary d-none'
 		ingles.className = 'btn btn-primary d-none'
@@ -52,6 +52,24 @@ function enable_btngame() {
 	if (player_1 === '' && player_2 === '' && player_3 === '' && player_4 === '' && player_5 === '') {
 		btn_start.className = 'd-none'
 	} else {
-		btn_start.className = 'btn btn-primary col-6 btn_shadow'
+		btn_start.className = 'btn btn-primary col-6 btn_shadow fade_in'
 	}
+}
+
+//ir  SCORES INGLES
+function goto_scores_eng() {
+	window.location.href = '/scores_eng.html'
+}
+//ir  SCORES ESP
+function goto_scores_esp() {
+	window.location.href = '/scores_esp.html'
+}
+
+//ir  PLAYERS ENG
+function goto_players_eng() {
+	window.location.href = '/players_eng.html'
+}
+//ir  PLAYERS ESP
+function goto_players_esp() {
+	window.location.href = '/players_esp.html'
 }

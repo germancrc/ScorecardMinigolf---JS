@@ -50,7 +50,7 @@ if (document.getElementById('scores_table')) {
 			tableHtml += '<table class="table table-dark table-striped text-center table-sm my-4"><thead><tr><th scope="col">TOTAL</th>'
 
 			for (let i = 0; i < array_scores.length; i++) {
-				tableHtml += `<th scope="col"><td><input class="form-control text-center" id="${array_scores[i]}" type="number"  min="0"></td></th>`
+				tableHtml += `<th scope="col"><td><input class="form-control text-center" id="${array_scores[i]}player" type="number" min="0" readonly></td></th>`
 			}
 
 			tableHtml += '</tbody></table>'
@@ -62,6 +62,17 @@ if (document.getElementById('scores_table')) {
 			// if (tdElement === '19') {
 			// 	tdElement.textContent = 'Total'
 			// }
+
+			//get all input values
+			const inputElements = document.querySelectorAll('input')
+			const inputIds = []
+			inputElements.forEach((input) => {
+				const id = input.getAttribute('id')
+				if (id) {
+					inputIds.push(id)
+				}
+			})
+			console.log(inputIds)
 		}
 	}
 
