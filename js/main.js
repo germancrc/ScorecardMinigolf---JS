@@ -29,16 +29,16 @@ if (document.getElementById('scores_table')) {
 		if (array_scores === null) {
 			array_scores = []
 		} else {
-			let tableHtml = '<table class="table table-sm text-center table-striped"><thead><tr><th scope="col">Hole#</th>'
+			let tableHtml = '<table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">HOLE</th>'
 
 			for (let i = 0; i < array_scores.length; i++) {
-				tableHtml += `<th scope="col">${array_scores[i].nombre}</th>`
+				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre}</th>`
 			}
 
 			tableHtml += '</tr></thead><tbody>'
 
 			for (let i = 1; i <= holes; i++) {
-				tableHtml += `<tr scope="row" id="row${i}"><td class="align-middle fw-bold">${i}</td>`
+				tableHtml += `<tr scope="row" id="row${i}"><td class="align-middle col-1 fw-bold">${i}</td>`
 
 				for (let j = 0; j < array_scores.length; j++) {
 					tableHtml += `<td><input class="form-control text-center" type="number" id="player${j + 1}hole${i}" min="0" max="6"></td>`
@@ -47,7 +47,7 @@ if (document.getElementById('scores_table')) {
 				tableHtml += '</tr>'
 			}
 
-			tableHtml += '<table class="table table-sm text-center table-striped my-4"><thead><tr><th scope="col" class="align-middle">Total</th>'
+			tableHtml += '<table class="table table-dark table-striped text-center table-sm my-4"><thead><tr><th scope="col">TOTAL</th>'
 
 			for (let i = 0; i < array_scores.length; i++) {
 				tableHtml += `<th scope="col"><td><input class="form-control text-center" id="${array_scores[i]}" type="number"  min="0"></td></th>`

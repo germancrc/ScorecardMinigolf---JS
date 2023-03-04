@@ -14,11 +14,11 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
-	<body id="index_bng">
+	<body class="index_bng">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="/">MINI GOLF SCORE</a>
-				<button
+				<!-- <button
 					class="navbar-toggler"
 					type="button"
 					data-bs-toggle="collapse"
@@ -31,25 +31,90 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="/"> Home</a>
-							<a class="nav-link active" aria-current="page" href="#"> Reglas del mini golf</a>
+							 <a class="nav-link active" aria-current="page" href="/"> Home</a> 
+							<a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#rules"> Reglas del mini golf</a>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</nav>
+
+		<div class="d-flex justify-content-around my-4">
+			<button type="button" class="btn btn-primary btn_shadow" data-bs-toggle="modal" data-bs-target="#rules_esp">Reglas Mini Golf</button>
+			<button type="button" class="btn btn-primary btn_shadow" data-bs-toggle="modal" data-bs-target="#rules_eng">Mini Golf Rules</button>
+		</div>
 
 		<div class="container">
 			<h1 class="text-center text-light fw-bold" id="welcome"></h1>
 
 			<h4 class="my-3 text-center text-light" id="lang_picker"></h4>
-			<select class="form-select" aria-label="Default select example">
+			<select class="form-select" aria-label="Default select example" id="lang_select" onchange="change_language()">
 				<option selected value="">Select</option>
 				<option value="english">English</option>
 				<option value="español">Español</option>
 			</select>
-			<a href="/players.html" type="button" class="btn btn-primary d-none" id="btn_continue_esp">Continuar</a>
-			<a href="/players.html" type="button" class="btn btn-primary d-none" id="btn_continue_esp">Continue</a>
+
+			<div class="mt-5">
+				<a href="/players.html" type="button" class="d-none" id="btn_continue_esp">Continuar</a>
+				<a href="/players_eng.html" type="button" class="d-none" id="btn_continue_eng">Continue</a>
+			</div>
+		</div>
+
+		<!-- Modal reglas español -->
+		<div class="modal fade" id="rules_esp" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rules_espLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="rules_espLabel">Reglas del Mini Golf</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ratione ea id aliquid commodi dicta ipsa? Numquam ratione est fuga ea atque
+						ipsam odio vel in accusantium commodi minus incidunt error sit ipsa soluta nisi rerum consequuntur beatae, laborum praesentium quaerat ex
+						asperiores. Voluptates quis debitis fugiat pariatur non, perferendis, sunt explicabo dolores, officiis quisquam deleniti rem? Consequatur
+						rerum labore perspiciatis minus eaque esse mollitia deserunt recusandae ipsum error quam fugit, nam illum. Illum dolorem placeat molestias
+						atque obcaecati architecto molestiae sunt doloribus nam autem facilis, aut soluta dignissimos minima ratione hic qui, animi magni quasi
+						dolores ab! Voluptatem quaerat odit magnam dolor, autem minus exercitationem magni porro, nihil rerum praesentium labore? Sit repudiandae
+						voluptatum suscipit animi culpa laboriosam tenetur eveniet sequi, nihil quibusdam deserunt quia exercitationem blanditiis? Accusamus
+						maxime libero adipisci, vero voluptate eaque. Provident aspernatur perspiciatis adipisci nesciunt facilis dicta iste. Nemo deleniti,
+						tempore ipsa ab, veritatis provident eveniet dolorem odio non, unde temporibus pariatur porro sunt suscipit eius illum delectus ducimus
+						illo. Fugiat deserunt cumque voluptate, earum esse maxime harum facere placeat in reprehenderit est alias quas doloribus dolore
+						temporibus, officia beatae et? Libero nemo, porro earum quae tempora alias! Obcaecati tempora architecto consequatur eos, maiores dolore?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal reglas ingles -->
+		<div class="modal fade" id="rules_eng" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rules_engLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="rules_engLabel">Mini Golf Rules</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore voluptates sunt nihil reprehenderit, earum fugit recusandae alias vero.
+						Nesciunt fuga aspernatur laboriosam, illum porro a quam adipisci voluptates ad minima ut iure. Dolore, magni ea fugit aspernatur in quasi
+						dolores, beatae dicta veritatis eius molestias aperiam unde ab atque accusamus, corporis totam harum praesentium! Eaque ullam, architecto
+						incidunt ipsa adipisci, non nulla dolorum fugit earum doloribus ipsum debitis dignissimos nostrum corrupti reiciendis deserunt rem in,
+						deleniti voluptatem hic voluptas. Cum blanditiis repudiandae dolore dolorum atque delectus ex! Harum culpa itaque dolore ducimus porro
+						corporis amet deserunt ipsa illo saepe! Mollitia, tempora ex asperiores commodi fugit dicta nisi eum delectus odio fuga saepe temporibus
+						nostrum hic voluptatum reiciendis, voluptas maiores suscipit itaque. Doloribus necessitatibus iste sit officiis facilis neque ipsa
+						accusantium. Sed, voluptates voluptatum veniam repudiandae minus impedit aspernatur fugit magni dolore nostrum id optio suscipit tempore
+						tenetur dignissimos commodi ducimus eum qui. Exercitationem expedita iusto veniam eligendi molestiae iste repellat minus, delectus magnam
+						consequuntur. Consectetur enim quaerat unde rerum alias! Facere minus expedita, necessitatibus temporibus perferendis consequuntur amet
+						veritatis error quisquam adipisci dicta tempora voluptas doloremque quidem assumenda sit laboriosam vero esse delectus ratione hic
+						deleniti fugiat? Iure, voluptate repellendus.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script
