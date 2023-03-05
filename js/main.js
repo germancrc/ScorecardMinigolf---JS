@@ -42,7 +42,7 @@ if (document.getElementById('scores_table')) {
 				tableHtml += `<tr scope="row" id="row${i}"><td class="align-middle col-1 fw-bold">${i}</td>`
 
 				for (let j = 0; j < array_scores.length; j++) {
-                                        tableHtml += `<td><input class="form-control text-center" type="number" id="player${j + 1}hole${i}" min="0" max="6" value=""></td>`
+                                        //tableHtml += `<td><input class="form-control text-center" type="number" id="player${j + 1}hole${i}" min="0" max="6" value=""></td>`
 					tableHtml += `<td> <select class="form-select" aria-label="Player score select" id="player${j + 1}hole${i}" >
   <option selected>0</option>
   <option value="1">1</option>
