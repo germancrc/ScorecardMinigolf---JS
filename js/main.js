@@ -33,7 +33,7 @@ if (document.getElementById('scores_table')) {
 			let tableHtml = '<table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">HOLE</th>'
 
 			for (let i = 0; i < array_scores.length; i++) {
-				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0,3)}</th>`
+				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0,4)}</th>`
 			}
 
 			tableHtml += '</tr></thead><tbody>'
