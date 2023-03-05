@@ -10,6 +10,18 @@ if (document.getElementById('welcome')) {
 	}, 3000)
 }
 
+//FECHA
+let objectDate = new Date()
+
+let day = objectDate.getDate()
+let month = objectDate.getMonth()
+let year = objectDate.getFullYear()
+
+if (document.getElementById('fecha_eng')) {
+	const fecha_eng = document.getElementById('fecha_eng')
+	fecha_eng.textContent = 'Score: ' + (month + 1) + '-' + day + '-' + year
+}
+
 //cambiar texto lang picker
 if (document.getElementById('lang_picker')) {
 	const texto_lang = document.getElementById('lang_picker')
@@ -46,10 +58,10 @@ function enable_btngame() {
 	player_2 = document.getElementById('player_2').value
 	player_3 = document.getElementById('player_3').value
 	player_4 = document.getElementById('player_4').value
-	player_5 = document.getElementById('player_5').value
+	// player_5 = document.getElementById('player_5').value
 	btn_start = document.getElementById('start_game')
 
-	if (player_1 === '' && player_2 === '' && player_3 === '' && player_4 === '' && player_5 === '') {
+	if (player_1 === '' && player_2 === '' && player_3 === '' && player_4 === '') {
 		btn_start.className = 'd-none'
 	} else {
 		btn_start.className = 'btn btn-primary col-6 btn_shadow fade_in'
