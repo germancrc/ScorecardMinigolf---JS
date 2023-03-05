@@ -41,11 +41,11 @@ function change_language() {
 	let idioma = document.getElementById('lang_select').value
 
 	if (idioma == 'español') {
-		espanol.className = 'btn btn-primary d-block btn_shadow fade_in'
+		espanol.className = 'btn btn-primary btn-lg d-block btn_shadow fade_in'
 		ingles.className = 'btn btn-primary d-none'
 	} else if (idioma == 'english') {
 		espanol.className = 'btn btn-primary d-none'
-		ingles.className = 'btn btn-primary d-block btn_shadow fade_in'
+		ingles.className = 'btn btn-primary btn-lg d-block btn_shadow fade_in'
 	} else {
 		espanol.className = 'btn btn-primary d-none'
 		ingles.className = 'btn btn-primary d-none'

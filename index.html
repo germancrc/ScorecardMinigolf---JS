@@ -18,45 +18,23 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="/">MINI GOLF SCORE</a>
-				<!-- <button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarTogglerDemo02"
-					aria-controls="navbarTogglerDemo02"
-					aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							 <a class="nav-link active" aria-current="page" href="/"> Home</a> 
-							<a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#rules"> Reglas del mini golf</a>
-						</li>
-					</ul>
-				</div> -->
 			</div>
 		</nav>
-
-		<div class="d-flex justify-content-around my-4">
-			<button type="button" class="btn btn-primary btn_shadow" data-bs-toggle="modal" data-bs-target="#rules_esp">Reglas Mini Golf</button>
-			<button type="button" class="btn btn-primary btn_shadow" data-bs-toggle="modal" data-bs-target="#rules_eng">Mini Golf Rules</button>
-		</div>
-
 		<div class="container fade_in">
 			<h1 class="text-center text-light fw-bold" id="welcome">Welcome!</h1>
 
-			<h4 class="my-3 text-center text-light" id="lang_picker">Please select your language</h4>
-			<select class="form-select" aria-label="Default select example" id="lang_select" onchange="change_language()">
-				<option selected value="">Select</option>
-				<option value="english">English</option>
-				<option value="español">Español</option>
-			</select>
+			<h4 class="my-4 text-center text-light" id="lang_picker">Please select your language</h4>
+			<div class="d-flex align-content-center col-8 mx-auto">
+				<select class="form-select" aria-label="language selector" id="lang_select" onchange="change_language()">
+					<option selected value="">Select</option>
+					<option value="english">English</option>
+					<option value="español">Español</option>
+				</select>
+			</div>
 
-			<div class="mt-5">
-				<button type="button" class="d-none" id="btn_continue_esp" onclick="goto_players_esp()">CONTINUAR</button>
-				<button type="button" class="d-none" id="btn_continue_eng" onclick="goto_players_eng()">CONTINUE</button>
+			<div class="mt-5 d-flex justify-content-center">
+				<button type="button" class="d-none" id="btn_continue_esp" data-bs-toggle="modal" data-bs-target="#rules_esp">CONTINUAR</button>
+				<button type="button" class="d-none" id="btn_continue_eng" data-bs-toggle="modal" data-bs-target="#rules_eng">CONTINUE</button>
 			</div>
 		</div>
 
@@ -89,6 +67,7 @@
 						temporibus, officia beatae et? Libero nemo, porro earum quae tempora alias! Obcaecati tempora architecto consequatur eos, maiores dolore?
 					</div>
 					<div class="modal-footer">
+						<button type="button" class="btn btn-success" id="btn_continue_eng" onclick="goto_players_esp()">CONTINUAR</button>
 						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">CERRAR</button>
 					</div>
 				</div>
@@ -122,8 +101,17 @@
 							<li>Please return equipment to club house upon completion of play. <strong>Lost ball fee USD$ 5.00</strong>.</li>
 							<li>When the ball falls inside pools, player must use the <strong>BALL FISHER</strong>.</li>
 						</ul>
+						<div class="d-flex justify-content-center my-5">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+								<label class="form-check-label" for="flexCheckDefault"
+									><strong>I have read and accept the MINI GOLF RULES stated above.</strong>
+								</label>
+							</div>
+						</div>
 					</div>
 					<div class="modal-footer">
+						<button type="button" class="btn btn-success" id="btn_continue_eng" onclick="goto_players_eng()">CONTINUE</button>
 						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">CLOSE</button>
 					</div>
 				</div>

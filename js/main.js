@@ -30,10 +30,10 @@ if (document.getElementById('scores_table')) {
 		if (array_scores === null) {
 			array_scores = []
 		} else {
-			let tableHtml = '<table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">HOLE</th>'
+			let tableHtml = '<table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">#</th>'
 
 			for (let i = 0; i < array_scores.length; i++) {
-				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0,4)}</th>`
+				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
 			}
 
 			tableHtml += '</tr></thead><tbody>'
@@ -42,17 +42,17 @@ if (document.getElementById('scores_table')) {
 				tableHtml += `<tr scope="row" id="row${i}"><td class="align-middle col-1 fw-bold">${i}</td>`
 
 				for (let j = 0; j < array_scores.length; j++) {
-                                        //tableHtml += `<td><input class="form-control text-center" type="number" id="player${j + 1}hole${i}" min="0" max="6" value=""></td>`
+					//tableHtml += `<td><input class="form-control text-center" type="number" id="player${j + 1}hole${i}" min="0" max="6" value=""></td>`
 					tableHtml += `<td> <select class="form-select" aria-label="Player score select" id="player${j + 1}hole${i}" >
-  <option selected>0</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-</select>
-</td>`
+					<option selected>0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					</select>
+					</td>`
 				}
 
 				tableHtml += '</tr>'
