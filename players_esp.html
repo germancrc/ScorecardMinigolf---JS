@@ -9,10 +9,11 @@
 			rel="stylesheet"
 			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 			crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
 	<body class="index_bng">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<nav class="navbar navbar-expand-lg navbar-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">MINI GOLF SCORE </a>
 				<button
@@ -28,8 +29,10 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="/"> Home</a>
-							<a class="nav-link active" aria-current="page" href="#"> Reglas del mini golf</a>
+							<a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-check"></i> INICIO</a>
+							<a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#rules_esp"
+								><i class="bi bi-card-checklist"></i> REGLAS DEL MINI GOLF</a
+							>
 						</li>
 					</ul>
 				</div>
@@ -60,9 +63,32 @@
 					<input type="text" class="form-control text-uppercase" id="player_5" aria-describedby="basic-addon3" />
 				</div>
 				<div class="d-flex justify-content-center mt-5">
-					<button type="submit" class="d-none" id="start_game" onclick="goto_scores()">INICIAR JUEGO!</button>
+					<button type="submit" class="d-none" id="start_game" onclick="goto_scores_esp()">INICIAR JUEGO!</button>
 				</div>
 			</form>
+		</div>
+
+		<!-- Modal reglas ESPAñOL -->
+		<div class="modal fade" id="rules_esp" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rules_espLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="rules_espLabel">Reglas del Mini Golf</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia veniam nihil dolore sunt itaque cumque maxime, in saepe fuga iusto
+						consequuntur minima facilis eveniet at enim unde quod rerum iste vitae error. Inventore nihil, explicabo ex accusantium sapiente maxime
+						autem minus distinctio dolorum eos temporibus nostrum obcaecati sequi rerum voluptas voluptatibus, pariatur id. Perspiciatis praesentium
+						pariatur vero tempora dolorum unde adipisci eligendi repellat commodi corporis quibusdam, voluptatibus eveniet illum rem quod, qui
+						doloremque cupiditate reprehenderit! Hic odit voluptatem accusantium illum rerum vel nostrum et, nemo asperiores voluptate, sed quia ipsa
+						aut obcaecati molestiae eveniet id quas deserunt suscipit earum recusandae?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger btnRules_shadow" data-bs-dismiss="modal">CERRAR</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script
@@ -71,10 +97,5 @@
 			crossorigin="anonymous"></script>
 		<script src="/js/main.js"></script>
 		<script src="/js/mods.js"></script>
-		<script>
-			function goto_scores() {
-				window.location.href = '/scores.html'
-			}
-		</script>
 	</body>
 </html>

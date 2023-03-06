@@ -21,6 +21,10 @@ if (document.getElementById('fecha_eng')) {
 	const fecha_eng = document.getElementById('fecha_eng')
 	fecha_eng.textContent = 'Score: ' + (month + 1) + '-' + day + '-' + year
 }
+if (document.getElementById('fecha_esp')) {
+	const fecha_esp = document.getElementById('fecha_esp')
+	fecha_esp.textContent = 'Score: ' + day + '-' + (month + 1) + '-' + year
+}
 
 //cambiar texto lang picker
 if (document.getElementById('lang_picker')) {
@@ -50,6 +54,33 @@ function change_language() {
 		espanol.className = 'btn btn-primary d-none'
 		ingles.className = 'btn btn-primary d-none'
 	}
+}
+
+//HABILITAR BOTON REGLAS
+
+if (document.getElementById('conf_rules_eng')) {
+	let checkbox_rules = document.querySelector('#conf_rules_eng')
+	let btn_continue_eng = document.querySelector('#btn_continue_modal_eng')
+	checkbox_rules.addEventListener('change', function () {
+		if (this.checked) {
+			console.log('check')
+			btn_continue_eng.disabled = false
+		} else {
+			btn_continue_eng.disabled = true
+		}
+	})
+}
+if (document.getElementById('conf_rules_esp')) {
+	let checkbox_reglas = document.querySelector('#conf_rules_esp')
+	let btn_continue_esp = document.querySelector('#btn_continue_modal_esp')
+	checkbox_reglas.addEventListener('change', function () {
+		if (this.checked) {
+			console.log('check')
+			btn_continue_esp.disabled = false
+		} else {
+			btn_continue_esp.disabled = true
+		}
+	})
 }
 
 //HABILITAR BOTON START GAME

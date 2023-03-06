@@ -3,7 +3,7 @@
 const players_form = document.getElementById('players_form')
 
 let array_scores = []
-let player_scores = []
+let sumsByColumn = []
 
 //FUNCIONES
 
@@ -23,6 +23,7 @@ const guardar_jugador = () => {
 
 if (document.getElementById('scores_table')) {
 	const scores_table = document.getElementById('scores_table')
+	const sumResult = document.getElementById('sumResult')
 	const mostrar_tabla_jugadores = () => {
 		scores_table.innerHTML = ''
 		const holes = 18
@@ -42,9 +43,8 @@ if (document.getElementById('scores_table')) {
 				tableHtml += `<tr scope="row" id="row${i}"><td class="align-middle col-1 fw-bold">${i}</td>`
 
 				for (let j = 0; j < array_scores.length; j++) {
-					//tableHtml += `<td><input class="form-control text-center" type="number" id="player${j + 1}hole${i}" min="0" max="6" value=""></td>`
-					tableHtml += `<td> <select class="form-select" aria-label="Player score select" id="player${j + 1}hole${i}" >
-					<option selected>0</option>
+					tableHtml += `<td> <select class="form-select text-center fw-bold" aria-label="Player score select" id="player${j + 1}-hole${i}" >
+					<option selected></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -58,47 +58,52 @@ if (document.getElementById('scores_table')) {
 				tableHtml += '</tr>'
 			}
 
-			tableHtml += '<table class="table table-dark table-striped text-center table-sm my-4"><thead><tr><th scope="col">TOTAL</th>'
+			// tableHtml += '<table class="table table-dark table-striped text-center table-sm my-4 pb-5"><thead><tr><th scope="col">TOTAL</th>'
 
-			for (let i = 0; i < array_scores.length; i++) {
-				tableHtml += `<th scope="col"><td><input class="form-control text-center" id="${array_scores[i]}result" type="number" min="0" readonly></td></th>`
-			}
+			// for (let i = 0; i < array_scores.length; i++) {
+			// 	tableHtml += `<th scope="col"><td><input class="form-control text-center" id="${array_scores[i].nombre}" type="number" min="0" value readonly></td></th>`
+			// }
 
 			tableHtml += '</tbody></table>'
 			scores_table.innerHTML = tableHtml
 
-			// document.getElementById('row19').innerHTML = 'Total'
+			// Get all SELECT elements on the page
+			scores_table.querySelectorAll('select').forEach((select) => {
+				select.addEventListener('change', (event) => {
+					// Get the ID of the select element
+					const selectId = event.target.id
 
-			// const tdElement = document.querySelector('#row19')
-			// if (tdElement === '19') {
-			// 	tdElement.textContent = 'Total'
-			// }
+					// Get the selected value of the select element
+					const selectValue = event.target.value
 
-			//get all input values
-			// const inputElements = document.querySelectorAll('input')
-			// const inputIds = []
-			// inputElements.forEach((input) => {
-			// 	const id = input.getAttribute('id')
-			// 	// const value = input.value
-			// 	if (id) {
-			// 		inputIds.push(id)
+					// Save the value to local storage with a specific key
+					localStorage.setItem(`${selectId}`, selectValue)
 
-			// 	}
-			// })
-			// console.log(inputIds)
+					//SUMAR SELECTORS
+					const tbody = document.querySelector('tbody')
 
-			// Get all input elements on the page
-			const inputs = document.querySelectorAll('input')
-			const inputIds = []
-			// Loop through each input element and retrieve its id and value attributes
-			inputs.forEach((input) => {
-				const id = input.id
-				const value = input.value
-				if (id) {
-					inputIds.push(id + ' - ' + value)
-					localStorage.setItem('score', JSON.stringify(inputIds))
+					// Loop through each column (excluding the first column with player names)
+
+					for (let i = 1; i < tbody.rows[0].cells.length; i++) {
+						let sum = 0
+
+						// Loop through each row in the column and add up the value of the select element
+						for (let j = 0; j < tbody.rows.length; j++) {
+							const select = tbody.rows[j].cells[i].querySelector('select')
+							sum += Number(select.value)
+						}
+
+						// Add the sum for the column to the array of sums
+						sumsByColumn.push(sum)
+
+						//FALTA MOSTRAR LOS RESULTADOS
+					}
+				})
+				// Get the saved value from local storage and set the selected option
+				const savedValue = localStorage.getItem(select.id)
+				if (savedValue) {
+					select.value = savedValue
 				}
-				console.log(`ID: ${id}, Value: ${value}`)
 			})
 		}
 	}

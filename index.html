@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
 	<body class="index_bng">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<nav class="navbar navbar-expand-lg navbar-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="/">MINI GOLF SCORE</a>
 			</div>
@@ -54,21 +54,26 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ratione ea id aliquid commodi dicta ipsa? Numquam ratione est fuga ea atque
-						ipsam odio vel in accusantium commodi minus incidunt error sit ipsa soluta nisi rerum consequuntur beatae, laborum praesentium quaerat ex
-						asperiores. Voluptates quis debitis fugiat pariatur non, perferendis, sunt explicabo dolores, officiis quisquam deleniti rem? Consequatur
-						rerum labore perspiciatis minus eaque esse mollitia deserunt recusandae ipsum error quam fugit, nam illum. Illum dolorem placeat molestias
-						atque obcaecati architecto molestiae sunt doloribus nam autem facilis, aut soluta dignissimos minima ratione hic qui, animi magni quasi
-						dolores ab! Voluptatem quaerat odit magnam dolor, autem minus exercitationem magni porro, nihil rerum praesentium labore? Sit repudiandae
-						voluptatum suscipit animi culpa laboriosam tenetur eveniet sequi, nihil quibusdam deserunt quia exercitationem blanditiis? Accusamus
-						maxime libero adipisci, vero voluptate eaque. Provident aspernatur perspiciatis adipisci nesciunt facilis dicta iste. Nemo deleniti,
-						tempore ipsa ab, veritatis provident eveniet dolorem odio non, unde temporibus pariatur porro sunt suscipit eius illum delectus ducimus
-						illo. Fugiat deserunt cumque voluptate, earum esse maxime harum facere placeat in reprehenderit est alias quas doloribus dolore
-						temporibus, officia beatae et? Libero nemo, porro earum quae tempora alias! Obcaecati tempora architecto consequatur eos, maiores dolore?
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque vero in numquam libero deleniti, vel accusamus deserunt facere molestias
+						ullam eum sequi dignissimos accusantium asperiores nihil temporibus doloremque dolore laborum? Non natus iusto nostrum officiis hic.
+						Aspernatur, repellendus obcaecati neque nihil dolor numquam veritatis corporis cum. Esse commodi deserunt ducimus, eveniet neque odit non
+						cupiditate at repudiandae voluptatem unde ipsum nemo perspiciatis velit. Veritatis rem adipisci suscipit molestiae perspiciatis sequi ut!
+						Iure corrupti itaque cumque voluptates tenetur eum ipsam minima vero veniam ab maxime quis molestias deserunt laboriosam beatae, eveniet
+						impedit eaque doloremque ea! Deleniti saepe earum inventore sit aperiam!
+						<div class="d-flex justify-content-center my-5">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="conf_rules_esp" />
+								<label class="form-check-label" for="conf_rules_esp"
+									><strong>He leído y acepto las Reglas de Mini Golf arriba indicadas.</strong>
+								</label>
+							</div>
+						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-success" id="btn_continue_eng" onclick="goto_players_esp()">CONTINUAR</button>
-						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">CERRAR</button>
+						<button type="button" class="btn btn-success btnRules_shadow" id="btn_continue_modal_esp" onclick="goto_players_esp()" disabled>
+							CONTINUAR
+						</button>
+						<button type="button" class="btn btn-danger btnRules_shadow" data-bs-dismiss="modal">CERRAR</button>
 					</div>
 				</div>
 			</div>
@@ -103,16 +108,18 @@
 						</ul>
 						<div class="d-flex justify-content-center my-5">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-								<label class="form-check-label" for="flexCheckDefault"
+								<input class="form-check-input" type="checkbox" id="conf_rules_eng" />
+								<label class="form-check-label" for="conf_rules_eng"
 									><strong>I have read and accept the MINI GOLF RULES stated above.</strong>
 								</label>
 							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-success" id="btn_continue_eng" onclick="goto_players_eng()">CONTINUE</button>
-						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">CLOSE</button>
+						<button type="button" class="btn btn-success btnRules_shadow" id="btn_continue_modal_eng" onclick="goto_players_eng()" disabled>
+							CONTINUE
+						</button>
+						<button type="button" class="btn btn-danger btnRules_shadow" data-bs-dismiss="modal">CLOSE</button>
 					</div>
 				</div>
 			</div>
