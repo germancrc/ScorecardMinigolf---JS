@@ -102,10 +102,12 @@ function enable_btngame() {
 //ir  SCORES INGLES
 function goto_scores_eng() {
 	window.location.href = '/scores_eng.html'
+	localStorage.clear()
 }
 //ir  SCORES ESP
 function goto_scores_esp() {
 	window.location.href = '/scores_esp.html'
+	localStorage.clear()
 }
 
 //ir  PLAYERS ENG

@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWDZKJJ713"></script>
+		<script>
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag('js', new Date())
+
+			gtag('config', 'G-DWDZKJJ713')
+		</script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Scores - Mini Golf Scorecard</title>
@@ -15,27 +26,8 @@
 	<body class="score_bg">
 		<nav class="navbar navbar-expand-lg navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/index.html">MINI GOLF SCORE </a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarTogglerDemo02"
-					aria-controls="navbarTogglerDemo02"
-					aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-check"></i> HOME</a>
-							<a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#rules_eng"
-								><i class="bi bi-card-checklist"></i> MINI GOLF RULES</a
-							>
-						</li>
-					</ul>
-				</div>
+				<a class="navbar-brand" href="/">MINI GOLF <i class="bi bi-list-ol"></i> SCORE </a>
+				<a class="nav-link text-light" aria-current="page" data-bs-toggle="modal" data-bs-target="#rules_eng"><i class="bi bi-journals"></i> RULES</a>
 			</div>
 		</nav>
 
@@ -44,6 +36,7 @@
 			<!-- <button type="button" class="btn btn-light" onclick="downloadImage()">Light</button> -->
 			<div id="scores_table"></div>
 			<h1 class="text-light text-center">RESULTS</h1>
+			<div id="container_results"></div>
 			<div id="sumResult" class="pb-5 text-light"></div>
 		</div>
 
