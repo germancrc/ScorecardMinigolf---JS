@@ -47,3 +47,13 @@ body {
 		transform: translateY(0);
 	}
 }
+
+.alto_score,
+.form-select {
+	height: 3rem;
+	font-size: larger;
+}
+
+.form-select {
+	color: blue;
+}

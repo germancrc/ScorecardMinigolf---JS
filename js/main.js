@@ -39,10 +39,10 @@ if (document.getElementById('scores_table')) {
 			tableHtml += '</tr></thead><tbody>'
 
 			for (let i = 1; i <= holes; i++) {
-				tableHtml += `<tr scope="row" id="row${i}"><td class="align-middle col-1 fw-bold">${i}</td>`
+				tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="align-middle py-4 col-1 fw-bold">${i}</td>`
 
 				for (let j = 0; j < array_scores.length; j++) {
-					tableHtml += `<td> <select class="form-select text-center fw-bold player${j + 1}" aria-label="Player score select" id="player${
+					tableHtml += `<td > <select class="form-select text-center fw-bold mt-2 player${j + 1}" aria-label="Player score select" id="player${
 						j + 1
 					}-hole${i}" >
 					<option selected></option>
