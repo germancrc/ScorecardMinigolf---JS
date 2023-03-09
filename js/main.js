@@ -36,7 +36,7 @@ if (document.getElementById('scores_table')) {
 				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
 			}
 
-			tableHtml += '</tr></thead><tbody>'
+			tableHtml += '</tr></thead><tbody class="height: 300px; overflow-y: scroll;">'
 
 			for (let i = 1; i <= holes; i++) {
 				tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="align-middle py-4 col-1 fw-bold">${i}</td>`
@@ -62,6 +62,71 @@ if (document.getElementById('scores_table')) {
 			tableHtml += '</tbody></table>'
 			scores_table.innerHTML = tableHtml
 		}
+
+		// Get all SELECT elements on the page
+		scores_table.querySelectorAll('select').forEach((select) => {
+			select.addEventListener('change', (event) => {
+				// Get the ID of the select element
+				const selectId = event.target.id
+
+				// Get the selected value of the select element
+				const selectValue = event.target.value
+
+				// Save the value to local storage with a specific key
+				localStorage.setItem(`${selectId}`, selectValue)
+
+				//SUMAR SELECTORS
+				const tbody = document.querySelector('tbody')
+
+				// Loop through each column (excluding the first column with player names)
+
+				for (let i = 1; i < tbody.rows[0].cells.length; i++) {
+					let sum = 0
+
+					// Loop through each row in the column and add up the value of the select element
+					for (let j = 0; j < tbody.rows.length; j++) {
+						const select = tbody.rows[j].cells[i].querySelector('select')
+						sum += Number(select.value)
+					}
+
+					// Add the sum for the column to the array of sums
+					sumsByColumn.push(sum)
+					console.log(sum)
+
+					// if (tableResults === null) {
+					// 	tableResults = []
+					// } else {
+					// 	//resultados
+					// 	let tableResults = '<table class="table table-dark table-striped text-center table-sm"><thead><tr>'
+
+					// 	for (let i = 0; i < array_scores.length; i++) {
+					// 		tableResults += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 6)}</th>`
+					// 	}
+
+					// 	tableResults += '</tr></thead><tbody>'
+
+					// 	for (let i = 1; i <= sumsByColumn.length; i++) {
+					// 		tableResults += `<tr scope="row" id="row${i}">`
+
+					// 		for (let j = 0; j < sumsByColumn; j++) {
+					// 			tableResults += `<td>${sum}</td>`
+					// 			console.log(sum)
+					// 		}
+
+					// 		tableResults += '</tr>'
+					// 	}
+
+					// 	tableResults += '</tbody></table>'
+					// 	container_results.innerHTML = tableResults
+					// }
+				}
+			})
+			// Get the saved value from local storage and set the selected option
+			const savedValue = localStorage.getItem(select.id)
+			if (savedValue) {
+				select.value = savedValue
+			}
+		})
 	}
 
 	document.addEventListener('DOMContentLoaded', mostrar_tabla_jugadores)
