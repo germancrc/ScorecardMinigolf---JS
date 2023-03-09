@@ -93,32 +93,22 @@ if (document.getElementById('scores_table')) {
 					sumsByColumn.push(sum)
 					console.log(sum)
 
-					// if (tableResults === null) {
-					// 	tableResults = []
-					// } else {
-					// 	//resultados
-					// 	let tableResults = '<table class="table table-dark table-striped text-center table-sm"><thead><tr>'
+					const results_table = document.getElementById('container_results')
+					let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
 
-					// 	for (let i = 0; i < array_scores.length; i++) {
-					// 		tableResults += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 6)}</th>`
-					// 	}
+					for (let i = 0; i < array_scores.length; i++) {
+						table_results += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
+					}
 
-					// 	tableResults += '</tr></thead><tbody>'
+					table_results += '<tr>'
 
-					// 	for (let i = 1; i <= sumsByColumn.length; i++) {
-					// 		tableResults += `<tr scope="row" id="row${i}">`
+					for (let j = 0; j < sumsByColumn.length; j++) {
+						table_results += `<td class="alto_score align-middle fs-1" >${sumsByColumn[j]}
+						</td>`
+					}
 
-					// 		for (let j = 0; j < sumsByColumn; j++) {
-					// 			tableResults += `<td>${sum}</td>`
-					// 			console.log(sum)
-					// 		}
-
-					// 		tableResults += '</tr>'
-					// 	}
-
-					// 	tableResults += '</tbody></table>'
-					// 	container_results.innerHTML = tableResults
-					// }
+					table_results += '</tr></tbody></table>'
+					results_table.innerHTML = table_results
 				}
 			})
 			// Get the saved value from local storage and set the selected option

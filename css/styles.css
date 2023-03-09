@@ -54,13 +54,13 @@ body {
 	font-size: larger;
 }
 
-.form-select {
+/* .form-select {
 	color: blue;
-}
+} */
 
 .tableFixHead {
 	overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
-	height: 80vh; /* gives an initial height of 200px to the table */
+	height: 70vh; /* gives an initial height of 200px to the table */
 }
 .tableFixHead thead th {
 	position: sticky; /* make the table heads sticky */
