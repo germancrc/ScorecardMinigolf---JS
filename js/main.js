@@ -90,8 +90,14 @@ if (document.getElementById('scores_table')) {
 					}
 
 					// Add the sum for the column to the array of sums
-					sumsByColumn.push(sum)
+
 					console.log(sum)
+
+					sumsByColumn.push(sum)
+					if (sumsByColumn.length > array_scores.length) {
+						sumsByColumn.shift()
+					}
+					console.log(sumsByColumn)
 
 					const results_table = document.getElementById('container_results')
 					let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
@@ -115,6 +121,25 @@ if (document.getElementById('scores_table')) {
 			const savedValue = localStorage.getItem(select.id)
 			if (savedValue) {
 				select.value = savedValue
+			}
+
+			if (!sumsByColumn.length) {
+				const results_table = document.getElementById('container_results')
+				let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
+
+				for (let i = 0; i < array_scores.length; i++) {
+					table_results += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
+				}
+
+				table_results += '<tr>'
+
+				for (let j = 0; j < array_scores.length; j++) {
+					table_results += `<td class="alto_score align-middle fs-1" >-
+						</td>`
+				}
+
+				table_results += '</tr></tbody></table>'
+				results_table.innerHTML = table_results
 			}
 		})
 	}
