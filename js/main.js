@@ -90,7 +90,7 @@ if (document.getElementById('scores_table')) {
 					}
 
 					// Add the sum for the column to the array of sums
-					sumsByColumn.push(  myArray.push(...values);
+					sumsByColumn.push(sum);
   if (sumsByColumn.length > sumsByColumn.length) {
     sumsByColumn.shift();
   }
