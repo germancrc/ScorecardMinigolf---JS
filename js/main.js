@@ -91,13 +91,12 @@ if (document.getElementById('scores_table')) {
 
 					// Add the sum for the column to the array of sums
 
-					console.log(sum)
+					// console.log(sum)
 
-					sumsByColumn.push(sum)
+					sumsByColumn.push(parseInt(sum))
 					if (sumsByColumn.length > array_scores.length) {
 						sumsByColumn.shift()
 					}
-					console.log(sumsByColumn)
 
 					const results_table = document.getElementById('container_results')
 					let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
@@ -109,7 +108,7 @@ if (document.getElementById('scores_table')) {
 					table_results += '<tr>'
 
 					for (let j = 0; j < sumsByColumn.length; j++) {
-						table_results += `<td class="alto_score align-middle fs-1" >${sumsByColumn[j]}
+						table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
 						</td>`
 					}
 

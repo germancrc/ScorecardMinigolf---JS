@@ -58,19 +58,17 @@ body {
 	color: blue;
 } */
 
-.tableFixHead {
-	overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
-	height: 70vh; /* gives an initial height of 200px to the table */
-}
-.tableFixHead thead th {
-	position: sticky; /* make the table heads sticky */
-	top: 0px; /* table head will be placed from the top of the table and sticks to it */
-}
-table {
-	border-collapse: collapse; /* make the table borders collapse to each other */
-	width: 100%;
-}
-
 #scores_table {
 	margin-bottom: 10rem;
+}
+
+.advert {
+	height: 3rem;
+	background-color: lightgrey;
+	color: blue;
+	padding: 10px;
+}
+
+.final_scores {
+	color: lightblue;
 }
