@@ -98,6 +98,8 @@ if (document.getElementById('scores_table')) {
 						sumsByColumn.shift()
 					}
 
+					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
+
 					const results_table = document.getElementById('container_results')
 					let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
 
@@ -122,24 +124,24 @@ if (document.getElementById('scores_table')) {
 				select.value = savedValue
 			}
 
-			if (!sumsByColumn.length) {
-				const results_table = document.getElementById('container_results')
-				let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
+			sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
 
-				for (let i = 0; i < array_scores.length; i++) {
-					table_results += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
-				}
+			const results_table = document.getElementById('container_results')
+			let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
 
-				table_results += '<tr>'
-
-				for (let j = 0; j < array_scores.length; j++) {
-					table_results += `<td class="alto_score align-middle fs-1" >-
-						</td>`
-				}
-
-				table_results += '</tr></tbody></table>'
-				results_table.innerHTML = table_results
+			for (let i = 0; i < array_scores.length; i++) {
+				table_results += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
 			}
+
+			table_results += '<tr>'
+
+			for (let j = 0; j < array_scores.length; j++) {
+				table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
+						</td>`
+			}
+
+			table_results += '</tr></tbody></table>'
+			results_table.innerHTML = table_results
 		})
 	}
 
