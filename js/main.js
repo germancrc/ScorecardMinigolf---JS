@@ -94,11 +94,11 @@ if (document.getElementById('scores_table')) {
 					// Add the sum for the column to the array of sums
 					sumsByColumn.push(parseInt(sum))
 					if (sumsByColumn.length > array_scores.length) {
-						localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
-						sumsByColumn.shift()
 						console.log(sumsByColumn)
 					}
-
+					
+					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
+					sumsByColumn.shift()
 
 					
 					const results_table = document.getElementById('container_results')
@@ -132,6 +132,8 @@ if (document.getElementById('scores_table')) {
 			// console.log(sumsByColumn)
 
 
+				sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
+				console.log(sumsByColumn)
 				
 				const results_table = document.getElementById('container_results')
 				let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
@@ -143,8 +145,6 @@ if (document.getElementById('scores_table')) {
 				table_results += '<tr>'
 	
 				for (let j = 0; j < array_scores.length; j++) {
-					sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
-					console.log(sumsByColumn)
 					if (sumsByColumn === null || sumsByColumn === undefined) {
 					table_results += `<td class="align-middle fs-2 final_scores" >-
 						</td>`
