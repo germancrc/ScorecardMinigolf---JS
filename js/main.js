@@ -3,7 +3,7 @@
 const players_form = document.getElementById('players_form')
 
 let array_scores = []
-let sumsByColumn = sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
+let sumsByColumn = []
 
 //FUNCIONES
 
