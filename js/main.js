@@ -94,11 +94,11 @@ if (document.getElementById('scores_table')) {
 					// Add the sum for the column to the array of sums
 					sumsByColumn.push(parseInt(sum))
 					if (sumsByColumn.length > array_scores.length) {
-						console.log(sumsByColumn)
+						sumsByColumn.shift()
 					}
 					
 					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
-					sumsByColumn.shift()
+					console.log(sumsByColumn)
 
 					
 					const results_table = document.getElementById('container_results')

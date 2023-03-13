@@ -72,3 +72,7 @@ body {
 /* .final_scores {
 	color: lightblue;
 } */
+
+.modal::backdrop { 
+	background-color: #212529;
+}
