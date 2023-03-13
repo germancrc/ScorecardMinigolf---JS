@@ -99,6 +99,7 @@ if (document.getElementById('scores_table')) {
 					}
 
 					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
+
 					
 					const results_table = document.getElementById('container_results')
 					let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
@@ -109,6 +110,8 @@ if (document.getElementById('scores_table')) {
 					
 					table_results += '<tr>'
 					
+					sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
+					console.log(sumsByColumn)
 					
 					for (let j = 0; j < sumsByColumn.length; j++) {
 						table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
@@ -126,7 +129,8 @@ if (document.getElementById('scores_table')) {
 			}
 
 			sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
-			
+			console.log(sumsByColumn)
+
 			const results_table = document.getElementById('container_results')
 			let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
 
@@ -137,13 +141,8 @@ if (document.getElementById('scores_table')) {
 			table_results += '<tr>'
 
 			for (let j = 0; j < array_scores.length; j++) {
-				if (!sumsByColumn) {
-					table_results += `<td class="align-middle fs-2 final_scores" >-
-					</td>`
-				}else{
-					table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
-							</td>`
-				}
+				table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
+						</td>`
 			}
 
 			table_results += '</tr></tbody></table>'
