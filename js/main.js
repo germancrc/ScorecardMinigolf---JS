@@ -27,7 +27,6 @@ if (document.getElementById('scores_table')) {
 		scores_table.innerHTML = ''
 		const holes = 18
 		array_scores = JSON.parse(localStorage.getItem('jugador'))
-		sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
 		if (array_scores === null) {
 			array_scores = []
 		} else {
