@@ -73,6 +73,6 @@ body {
 	color: lightblue;
 } */
 
-.modal::backdrop { 
+.modal { 
 	background-color: #212529;
 }
