@@ -73,7 +73,7 @@ body {
 	color: lightblue;
 } */
 
-.modal-header { 
+.modal-header, .btn-close, .modal-content, .modal-footer { 
 	background-color: #212529;
 	color: white;
 }
