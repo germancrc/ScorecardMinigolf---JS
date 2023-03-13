@@ -133,7 +133,7 @@ if (document.getElementById('scores_table')) {
 			// console.log(sumsByColumn)
 
 
-				sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
+				// sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
 				console.log(sumsByColumn)
 				
 				const results_table = document.getElementById('container_results')
