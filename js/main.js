@@ -19,8 +19,6 @@ const crear_jugador = (nombre) => {
 
 const guardar_jugador = () => {
 	localStorage.setItem('jugador', JSON.stringify(array_scores))
-	localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
-	console.log(sumsByColumn)
 }
 
 if (document.getElementById('scores_table')) {
@@ -99,8 +97,8 @@ if (document.getElementById('scores_table')) {
 						sumsByColumn.shift()
 					}
 					
-					
-
+					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
+					console.log(sumsByColumn)
 					
 					const results_table = document.getElementById('container_results')
 					let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
@@ -128,13 +126,6 @@ if (document.getElementById('scores_table')) {
 			if (savedValue) {
 				select.value = savedValue
 			}
-
-			
-			// console.log(sumsByColumn)
-
-
-				// sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
-				console.log(sumsByColumn)
 				
 				const results_table = document.getElementById('container_results')
 				let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
