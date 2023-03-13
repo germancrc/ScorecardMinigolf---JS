@@ -141,7 +141,7 @@ if (document.getElementById('scores_table')) {
 				table_results += '<tr>'
 	
 				for (let j = 0; j < array_scores.length; j++) {
-					if (sumsByColumn === null || sumsByColumn === undefined) {
+					if (totalSumas === null || totalSumas === undefined) {
 					table_results += `<td class="align-middle fs-2 final_scores" >-
 						</td>`
 					} else{
