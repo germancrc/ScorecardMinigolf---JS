@@ -132,23 +132,26 @@ if (document.getElementById('scores_table')) {
 			sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
 			// console.log(sumsByColumn)
 
-			const results_table = document.getElementById('container_results')
-			let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
-
-			for (let i = 0; i < array_scores.length; i++) {
-				table_results += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
+			if (sumsByColumn === null) {
+				
+				const results_table = document.getElementById('container_results')
+				let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
+	
+				for (let i = 0; i < array_scores.length; i++) {
+					table_results += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
+				}
+	
+				table_results += '<tr>'
+	
+				for (let j = 0; j < array_scores.length; j++) {
+					console.log(sumsByColumn)
+					table_results += `<td class="align-middle fs-2 final_scores" >-
+							</td>`
+				}
+	
+				table_results += '</tr></tbody></table>'
+				results_table.innerHTML = table_results
 			}
-
-			table_results += '<tr>'
-
-			for (let j = 0; j < array_scores.length; j++) {
-				console.log(sumsByColumn)
-				table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
-						</td>`
-			}
-
-			table_results += '</tr></tbody></table>'
-			results_table.innerHTML = table_results
 		})
 	}
 
