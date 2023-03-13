@@ -27,6 +27,7 @@ if (document.getElementById('scores_table')) {
 		scores_table.innerHTML = ''
 		const holes = 18
 		array_scores = JSON.parse(localStorage.getItem('jugador'))
+		sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
 		if (array_scores === null) {
 			array_scores = []
 		} else {
@@ -144,7 +145,7 @@ if (document.getElementById('scores_table')) {
 				table_results += '<tr>'
 	
 				for (let j = 0; j < array_scores.length; j++) {
-					sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
+					
 					console.log(sumsByColumn)
 					if (sumsByColumn === null) {
 					table_results += `<td class="align-middle fs-2 final_scores" >-
