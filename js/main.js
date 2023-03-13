@@ -114,6 +114,7 @@ if (document.getElementById('scores_table')) {
 					// sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
 					
 					for (let j = 0; j < sumsByColumn.length; j++) {
+						console.log(sumsByColumn)
 						table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
 						</td>`
 					}
