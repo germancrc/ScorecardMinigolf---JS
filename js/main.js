@@ -99,6 +99,7 @@ if (document.getElementById('scores_table')) {
 					}
 
 					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
+					console.log(sumsByColumn)
 
 					
 					const results_table = document.getElementById('container_results')
@@ -110,8 +111,7 @@ if (document.getElementById('scores_table')) {
 					
 					table_results += '<tr>'
 					
-					sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
-					console.log(sumsByColumn)
+					// sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
 					
 					for (let j = 0; j < sumsByColumn.length; j++) {
 						table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
@@ -128,8 +128,8 @@ if (document.getElementById('scores_table')) {
 				select.value = savedValue
 			}
 
-			sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
-			console.log(sumsByColumn)
+			// sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
+			// console.log(sumsByColumn)
 
 			const results_table = document.getElementById('container_results')
 			let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
