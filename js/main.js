@@ -132,7 +132,7 @@ if (document.getElementById('scores_table')) {
 			sumsByColumn = JSON.parse(localStorage.getItem('sumsByColumn'))
 			// console.log(sumsByColumn)
 
-			if (sumsByColumn === null) {
+
 				
 				const results_table = document.getElementById('container_results')
 				let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
@@ -145,13 +145,18 @@ if (document.getElementById('scores_table')) {
 	
 				for (let j = 0; j < array_scores.length; j++) {
 					console.log(sumsByColumn)
+					if (sumsByColumn === null) {
 					table_results += `<td class="align-middle fs-2 final_scores" >-
 							</td>`
+						} else{
+							table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
+							</td>`
+						}
 				}
 	
 				table_results += '</tr></tbody></table>'
 				results_table.innerHTML = table_results
-			}
+			
 		})
 	}
 
