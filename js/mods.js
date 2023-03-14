@@ -19,11 +19,11 @@ let year = objectDate.getFullYear()
 
 if (document.getElementById('fecha_eng')) {
 	const fecha_eng = document.getElementById('fecha_eng')
-	fecha_eng.textContent = 'Score: ' + (month + 1) + '-' + day + '-' + year
+	fecha_eng.textContent = 'DATE: ' + (month + 1) + '-' + day + '-' + year
 }
 if (document.getElementById('fecha_esp')) {
 	const fecha_esp = document.getElementById('fecha_esp')
-	fecha_esp.textContent = 'Score: ' + day + '-' + (month + 1) + '-' + year
+	fecha_esp.textContent = 'FECHA: ' + day + '-' + (month + 1) + '-' + year
 }
 
 //cambiar texto lang picker

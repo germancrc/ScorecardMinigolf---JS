@@ -2,7 +2,7 @@
 
 const players_form = document.getElementById('players_form')
 
-let array_scores = []
+let array_players = []
 let sumsByColumn = []
 
 //FUNCIONES
@@ -12,13 +12,13 @@ const crear_jugador = (nombre) => {
 		nombre: nombre,
 	}
 
-	array_scores.push(jugador)
+	array_players.push(jugador)
 
 	return jugador
 }
 
 const guardar_jugador = () => {
-	localStorage.setItem('jugador', JSON.stringify(array_scores))
+	localStorage.setItem('jugador', JSON.stringify(array_players))
 }
 
 if (document.getElementById('scores_table')) {
@@ -26,14 +26,14 @@ if (document.getElementById('scores_table')) {
 	const mostrar_tabla_jugadores = () => {
 		scores_table.innerHTML = ''
 		const holes = 18
-		array_scores = JSON.parse(localStorage.getItem('jugador'))
-		if (array_scores === null) {
-			array_scores = []
+		array_players = JSON.parse(localStorage.getItem('jugador'))
+		if (array_players === null) {
+			array_players = []
 		} else {
 			let tableHtml = '<table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">#</th>'
 
-			for (let i = 0; i < array_scores.length; i++) {
-				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
+			for (let i = 0; i < array_players.length; i++) {
+				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
 			}
 
 			tableHtml += '</tr></thead><tbody class="height: 300px; overflow-y: scroll;">'
@@ -41,7 +41,7 @@ if (document.getElementById('scores_table')) {
 			for (let i = 1; i <= holes; i++) {
 				tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="align-middle py-4 col-1 fw-bold">${i}</td>`
 
-				for (let j = 0; j < array_scores.length; j++) {
+				for (let j = 0; j < array_players.length; j++) {
 					tableHtml += `<td > <select class="form-select text-center fw-bold mt-2 player${j + 1}" aria-label="Player score select" id="player${
 						j + 1
 					}-hole${i}" >
@@ -89,31 +89,26 @@ if (document.getElementById('scores_table')) {
 						sum += Number(select.value)
 					}
 
-					
-					
 					// Add the sum for the column to the array of sums
 					sumsByColumn.push(parseInt(sum))
-					
-					if (sumsByColumn.length > array_scores.length) {
+
+					if (sumsByColumn.length > array_players.length) {
 						sumsByColumn.shift()
 					}
-					
+
 					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
 					console.log(sumsByColumn)
-					
+
 					const results_table = document.getElementById('container_results')
 					let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
-					
-					for (let i = 0; i < array_scores.length; i++) {
-						table_results += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
+
+					for (let i = 0; i < array_players.length; i++) {
+						table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
 					}
-					
+
 					table_results += '<tr>'
-					
-					
-					
+
 					for (let j = 0; j < sumsByColumn.length; j++) {
-						
 						table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
 						</td>`
 					}
@@ -121,37 +116,51 @@ if (document.getElementById('scores_table')) {
 					table_results += '</tr></tbody></table>'
 					results_table.innerHTML = table_results
 				}
+				// check lowest value of array of sums
+
+				let nombre_jugadores = array_players.map(({ nombre }) => nombre)
+
+				const numbers = sumsByColumn
+				const names = nombre_jugadores
+				let lowestNumberIndex = 0
+
+				for (let i = 1; i < sumsByColumn.length; i++) {
+					if (sumsByColumn[i] < sumsByColumn[lowestNumberIndex]) {
+						lowestNumberIndex = i
+					}
+				}
+
+				console.log(`${names[lowestNumberIndex]} va ganando con ${numbers[lowestNumberIndex]} puntos.`)
 			})
 			// Get the saved value from local storage and set the selected option
 			const savedValue = localStorage.getItem(select.id)
 			if (savedValue) {
 				select.value = savedValue
 			}
-				
 
 			totalSumas = JSON.parse(localStorage.getItem('sumsByColumn'))
 
-				const results_table = document.getElementById('container_results')
-				let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
-	
-				for (let i = 0; i < array_scores.length; i++) {
-					table_results += `<th scope="col" class="text-uppercase col-2">${array_scores[i].nombre.slice(0, 4)}</th>`
-				}
-	
-				table_results += '<tr>'
-	
-				for (let j = 0; j < array_scores.length; j++) {
-					if (totalSumas === null || totalSumas === undefined) {
+			const results_table = document.getElementById('container_results')
+			let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
+
+			for (let i = 0; i < array_players.length; i++) {
+				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
+			}
+
+			table_results += '<tr>'
+
+			for (let j = 0; j < array_players.length; j++) {
+				if (totalSumas === null || totalSumas === undefined) {
 					table_results += `<td class="align-middle fs-2 final_scores" >-
 						</td>`
-					} else{
-						table_results += `<td class="align-middle fs-2 final_scores" >${totalSumas[j]}
+				} else {
+					table_results += `<td class="align-middle fs-2 final_scores" >${totalSumas[j]}
 						</td>`
-					}
 				}
-	
-				table_results += '</tr></tbody></table>'
-				results_table.innerHTML = table_results
+			}
+
+			table_results += '</tr></tbody></table>'
+			results_table.innerHTML = table_results
 		})
 	}
 
