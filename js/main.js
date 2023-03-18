@@ -175,7 +175,7 @@ if (document.getElementById('players_form')) {
 		let player_2 = document.getElementById('player_2').value
 		let player_3 = document.getElementById('player_3').value
 		let player_4 = document.getElementById('player_4').value
-		let player_5 = document.getElementById('player_5').value
+		// let player_5 = document.getElementById('player_5').value
 
 		if (player_1 != '') {
 			crear_jugador(player_1)
@@ -189,9 +189,9 @@ if (document.getElementById('players_form')) {
 		if (player_4 != '') {
 			crear_jugador(player_4)
 		}
-		if (player_5 != '') {
-			crear_jugador(player_5)
-		}
+		// if (player_5 != '') {
+		// 	crear_jugador(player_5)
+		// }
 
 		guardar_jugador()
 

@@ -2,6 +2,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+.logo {
+	height: 2.3rem;
+}
+
 .index_bng {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/img/minigolf.webp);
 	height: 100vh;
@@ -56,7 +60,7 @@ body {
 .alto_score,
 .form-select {
 	height: 3.3rem;
-	font-size: larger;
+	font-size: large;
 }
 
 /* .form-select {
