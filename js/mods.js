@@ -17,13 +17,21 @@ let day = objectDate.getDate()
 let month = objectDate.getMonth()
 let year = objectDate.getFullYear()
 
+const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+const mes_nombres = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Augosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+
+const monthName = monthNames[month]
+
+const mes_nomb = mes_nombres[month]
+
 if (document.getElementById('fecha_eng')) {
 	const fecha_eng = document.getElementById('fecha_eng')
-	fecha_eng.textContent = 'DATE: ' + (month + 1) + '-' + day + '-' + year
+	fecha_eng.textContent = monthName + ' ' + day + ' ' + year
 }
 if (document.getElementById('fecha_esp')) {
 	const fecha_esp = document.getElementById('fecha_esp')
-	fecha_esp.textContent = 'FECHA: ' + day + '-' + (month + 1) + '-' + year
+	fecha_esp.textContent = day + ' de ' + mes_nomb + ' ' + year
 }
 
 //cambiar texto lang picker

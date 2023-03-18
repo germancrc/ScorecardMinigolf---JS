@@ -45,7 +45,7 @@ if (document.getElementById('scores_table')) {
 					tableHtml += `<td > <select class="form-select text-center fw-bold mt-2 player${j + 1}" aria-label="Player score select" id="player${
 						j + 1
 					}-hole${i}" >
-					<option selected></option>
+					<option selected value="0">-</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -100,7 +100,7 @@ if (document.getElementById('scores_table')) {
 					console.log(sumsByColumn)
 
 					const results_table = document.getElementById('container_results')
-					let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
+					let table_results = '<table class="table table-dark text-center table-sm"><thead>'
 
 					for (let i = 0; i < array_players.length; i++) {
 						table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
@@ -118,19 +118,19 @@ if (document.getElementById('scores_table')) {
 				}
 				// check lowest value of array of sums
 
-				let nombre_jugadores = array_players.map(({ nombre }) => nombre)
+				// let nombre_jugadores = array_players.map(({ nombre }) => nombre)
 
-				const numbers = sumsByColumn
-				const names = nombre_jugadores
-				let lowestNumberIndex = 0
+				// const numbers = sumsByColumn
+				// const names = nombre_jugadores
+				// let leading_player = 0
 
-				for (let i = 1; i < sumsByColumn.length; i++) {
-					if (sumsByColumn[i] < sumsByColumn[lowestNumberIndex]) {
-						lowestNumberIndex = i
-					}
-				}
+				// for (let i = 1; i < sumsByColumn.length; i++) {
+				// 	if (sumsByColumn[i] < sumsByColumn[leading_player]) {
+				// 		leading_player = i
+				// 	}
+				// }
 
-				console.log(`${names[lowestNumberIndex]} va ganando con ${numbers[lowestNumberIndex]} puntos.`)
+				// console.log(`Lider: ${names[leading_player]} - ${numbers[leading_player]} puntos.`)
 			})
 			// Get the saved value from local storage and set the selected option
 			const savedValue = localStorage.getItem(select.id)
