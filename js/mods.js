@@ -103,7 +103,7 @@ function enable_btngame() {
 	if (player_1 === '' && player_2 === '' && player_3 === '' && player_4 === '') {
 		btn_start.className = 'd-none'
 	} else {
-		btn_start.className = 'btn btn-primary col-6 btn_shadow fade_in'
+		btn_start.className = 'btn btn-primary col-6 fade_in'
 	}
 }
 

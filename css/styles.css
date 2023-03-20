@@ -28,7 +28,11 @@ li {
 }
 
 #btn_continue_esp,
-#btn_continue_eng {
+#btn_continue_eng,
+#start_game {
+	letter-spacing: 0.15rem;
+	height: 3.8rem;
+	font-size: large;
 	box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75);
 	-webkit-box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75);
 	-moz-box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75);
@@ -106,4 +110,8 @@ li {
 .firma {
 	display: flex;
 	justify-content: center;
+}
+
+#results {
+	letter-spacing: 0.5rem;
 }
