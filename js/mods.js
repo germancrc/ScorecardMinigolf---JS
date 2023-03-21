@@ -128,7 +128,7 @@ function goto_players_esp() {
 }
 
 function capture() {
-	html2canvas(document.body).then(function (canvas) {
+	html2canvas(document.body, { scrollX: 0, scrollY: 0 }).then(function (canvas) {
 		var link = document.createElement('a')
 		document.body.appendChild(link)
 		link.download = month + 1 + '-' + day + '-' + year + '-SCORE.png'
