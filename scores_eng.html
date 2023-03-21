@@ -37,10 +37,16 @@
 		</nav>
 
 		<div class="container my-1">
-			<div class="d-flex justify-content-center">
-				<h4 id="fecha_eng" class="text-light mb-3"></h4>
+			<div class="row">
+				<div class="col">
+					<h6 id="fecha_eng" class="text-light mb-3"></h6>
+				</div>
+				<div class="col">
+					<button class="btn btn-warning" onclick="capture()">SAVE SCORE</button>
+				</div>
 			</div>
-			<div id="scores_table"></div>
+
+			<div id="scores_table" class="table-responsive"></div>
 
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
 				<div class="col">
@@ -95,5 +101,10 @@
 			crossorigin="anonymous"></script>
 		<script src="/js/main.js"></script>
 		<script src="/js/mods.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"></script>
 	</body>
 </html>
