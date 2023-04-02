@@ -36,15 +36,13 @@ if (document.getElementById('scores_table')) {
 				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
 			}
 
-			tableHtml += '</tr></thead><tbody class="height: 300px; overflow-y: scroll;">'
+			tableHtml += '</tr></thead><tbody>'
 
 			for (let i = 1; i <= holes; i++) {
 				tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="align-middle py-4 col-1 fw-bold">${i}</td>`
 
 				for (let j = 0; j < array_players.length; j++) {
-					tableHtml += `<td > <select class="form-select text-center fw-bold mt-2 player${j + 1}" aria-label="Player score select" id="player${
-						j + 1
-					}-hole${i}" >
+					tableHtml += `<td > <select class="form-select fw-bold mt-2 player${j + 1}" aria-label="Player score select" id="player${j + 1}-hole${i}" >
 					<option selected value="0">-</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -141,7 +139,7 @@ if (document.getElementById('scores_table')) {
 			totalSumas = JSON.parse(localStorage.getItem('sumsByColumn'))
 
 			const results_table = document.getElementById('container_results')
-			let table_results = '<table class="table table-dark table-striped text-center table-sm"><thead>'
+			let table_results = '<table class="table table-dark text-center table-sm"><thead>'
 
 			for (let i = 0; i < array_players.length; i++) {
 				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
@@ -175,7 +173,7 @@ if (document.getElementById('players_form')) {
 		let player_2 = document.getElementById('player_2').value
 		let player_3 = document.getElementById('player_3').value
 		let player_4 = document.getElementById('player_4').value
-		// let player_5 = document.getElementById('player_5').value
+		let player_5 = document.getElementById('player_5').value
 
 		if (player_1 != '') {
 			crear_jugador(player_1)
@@ -189,9 +187,9 @@ if (document.getElementById('players_form')) {
 		if (player_4 != '') {
 			crear_jugador(player_4)
 		}
-		// if (player_5 != '') {
-		// 	crear_jugador(player_5)
-		// }
+		if (player_5 != '') {
+			crear_jugador(player_5)
+		}
 
 		guardar_jugador()
 
