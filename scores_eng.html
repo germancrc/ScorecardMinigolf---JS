@@ -37,20 +37,14 @@
 		</nav>
 
 		<div class="container my-1">
-			<div class="row">
-				<div class="col">
-					<h6 id="fecha_eng" class="text-light mb-3"></h6>
-				</div>
-				<div class="col">
-					<button class="btn btn-warning" onclick="capture()"><i class="bi bi-download"></i></button>
-				</div>
-			</div>
-
-			<div id="scores_table" class="table-responsive"></div>
+			<div id="scores_table"></div>
 
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
 				<div class="col">
-					<div class="row"><h6 class="text-light text-center py-1" id="results">RESULTS</h6></div>
+					<div class="row">
+						<div class="col"><h6 class="text-light text-center py-1" id="results">RESULTS</h6></div>
+						<div class="col"><h6 id="fecha_eng" class="text-light text-center mb-3"></h6></div>
+					</div>
 					<div class="row"><div id="container_results"></div></div>
 					<div class="row text-center"><h6 class="text-light">&copy; 2023 - GermanCRC</h6></div>
 				</div>
@@ -101,10 +95,5 @@
 			crossorigin="anonymous"></script>
 		<script src="/js/main.js"></script>
 		<script src="/js/mods.js"></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
-			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"></script>
 	</body>
 </html>

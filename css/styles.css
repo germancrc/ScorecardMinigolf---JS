@@ -84,13 +84,6 @@ li {
 	margin-bottom: 11rem;
 }
 
-/* .advert {
-	height: 3rem;
-	background-color: lightgrey;
-	color: blue;
-	padding: 10px;
-} */
-
 .final_scores {
 	color: yellow;
 	font-weight: bold;
@@ -113,7 +106,7 @@ li {
 	display: flex;
 	justify-content: center;
 }
-
+/* 
 #results {
 	letter-spacing: 0.5rem;
-}
+} */

@@ -126,14 +126,3 @@ function goto_players_eng() {
 function goto_players_esp() {
 	window.location.href = '/players_esp.html'
 }
-
-function capture() {
-	html2canvas(document.body, { scrollX: 0, scrollY: 0 }).then(function (canvas) {
-		var link = document.createElement('a')
-		document.body.appendChild(link)
-		link.download = month + 1 + '-' + day + '-' + year + '-SCORE.png'
-		link.href = canvas.toDataURL()
-		link.target = '_blank'
-		link.click()
-	})
-}
