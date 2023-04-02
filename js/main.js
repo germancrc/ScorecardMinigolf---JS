@@ -33,7 +33,7 @@ if (document.getElementById('scores_table')) {
 			let tableHtml = '<table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">#</th>'
 
 			for (let i = 0; i < array_players.length; i++) {
-				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
+				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.trim().slice(0, 4)}</th>`
 			}
 
 			tableHtml += '</tr></thead><tbody>'
@@ -142,7 +142,7 @@ if (document.getElementById('scores_table')) {
 			let table_results = '<table class="table table-dark text-center table-sm"><thead>'
 
 			for (let i = 0; i < array_players.length; i++) {
-				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
+				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.trim().slice(0, 4)}</th>`
 			}
 
 			table_results += '<tr>'
