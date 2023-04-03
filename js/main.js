@@ -33,25 +33,40 @@ if (document.getElementById('scores_table')) {
 			let tableHtml = '<table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">#</th>'
 
 			for (let i = 0; i < array_players.length; i++) {
-				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
+				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.trim().slice(0, 4)}</th>`
 			}
 
 			tableHtml += '</tr></thead><tbody>'
 
 			for (let i = 1; i <= holes; i++) {
-				tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="align-middle py-4 col-1 fw-bold">${i}</td>`
+				tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="hole_numbers align-middle col-1 fw-bold">${i}</td>`
 
 				for (let j = 0; j < array_players.length; j++) {
-					tableHtml += `<td > <select class="form-select fw-bold mt-2 player${j + 1}" aria-label="Player score select" id="player${j + 1}-hole${i}" >
-					<option selected value="0">-</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					</select>
-					</td>`
+					if (array_players.length === 5) {
+						tableHtml += `<td > <select class="form-select px-2 my-2 player${j + 1}" aria-label="Player score select" id="player${j + 1}-hole${i}" >
+						<option selected value="0">-</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						</select>
+						</td>`
+					} else {
+						tableHtml += `<td > <select class="form-select text-center my-2 player${j + 1}" aria-label="Player score select" id="player${
+							j + 1
+						}-hole${i}" >
+						<option selected value="0">-</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						</select>
+						</td>`
+					}
 				}
 
 				tableHtml += '</tr>'
@@ -142,7 +157,7 @@ if (document.getElementById('scores_table')) {
 			let table_results = '<table class="table table-dark text-center table-sm"><thead>'
 
 			for (let i = 0; i < array_players.length; i++) {
-				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
+				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.trim().slice(0, 4)}</th>`
 			}
 
 			table_results += '<tr>'

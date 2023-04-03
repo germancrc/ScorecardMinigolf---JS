@@ -73,12 +73,19 @@ li {
 .alto_score,
 .form-select {
 	height: 3.3rem;
-	font-size: large;
+	font-size: larger;
+	font-weight: bold;
 }
 
-/* .form-select {
-	color: blue;
-} */
+.hole_numbers {
+	height: 3.3rem;
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+.bootstrap-select.btn-group .btn .filter-option {
+	text-align: right;
+}
 
 #scores_table {
 	margin-bottom: 11rem;
