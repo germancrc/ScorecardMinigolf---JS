@@ -157,7 +157,7 @@ if (document.getElementById('scores_table')) {
 			let table_results = '<table class="table table-dark text-center table-sm"><thead>'
 
 			for (let i = 0; i < array_players.length; i++) {
-				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
+				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.trim().slice(0, 4)}</th>`
 			}
 
 			table_results += '<tr>'
