@@ -10,6 +10,10 @@ if (document.getElementById('welcome')) {
 	}, 3000)
 }
 
+//year footer
+let yearFooter = new Date().getFullYear();
+document.getElementById("yearFooter").innerHTML = '\u00A9 ' + yearFooter + ' - GermanCRC';
+
 //FECHA
 let objectDate = new Date()
 
@@ -125,4 +129,56 @@ function goto_players_eng() {
 //ir  PLAYERS ESP
 function goto_players_esp() {
 	window.location.href = '/players_esp.html'
+}
+
+let players_list = document.getElementById('players_list');
+players_list.style.display = "none";
+
+function updateInputs() {
+	const inputContainer = document.getElementById('inputContainer');
+    const selectedValue = document.getElementById('inputSelector').value;
+	
+    if(selectedValue == 0){
+		players_list.style.display = "none";
+		inputContainer.innerHTML = '';
+	}else{
+		players_list.style.display = "block";
+
+		// Clear previous inputs
+		inputContainer.innerHTML = '';
+		
+		// Create new inputs based on the selected value
+		for (let i = 0; i < selectedValue; i++) {
+			const inputGroup = document.createElement('div');
+			inputGroup.className = 'input-group mb-3 fade_in';
+			
+			const inputLabel = document.createElement('span');
+			inputLabel.className = 'input-group-text';
+			
+			// Reemplazar la palabra "PLAYER" con una imagen
+			const img = document.createElement('img');
+			img.src = '/img/golfer.png'; 
+			img.alt = `Player ${i + 1}`;
+			img.id = 'golfer'
+			
+			inputLabel.appendChild(img);
+			
+			// Añadir el espacio y el número usando un span
+			const numberSpan = document.createElement('span');
+			numberSpan.className = 'number';
+			numberSpan.textContent = `${i + 1}`;
+			inputLabel.appendChild(numberSpan);
+			
+			const input = document.createElement('input');
+			input.type = 'text';
+			input.className = 'form-control text-uppercase fw-bold';
+			input.id = `player_${i + 1}`;
+			//input.placeholder = `PLAYER ${i + 1}`;
+			
+			inputGroup.appendChild(inputLabel);
+			inputGroup.appendChild(input);
+			
+			inputContainer.appendChild(inputGroup);
+		}
+	}
 }

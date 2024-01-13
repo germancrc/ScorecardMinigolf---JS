@@ -110,17 +110,19 @@ if (document.getElementById('scores_table')) {
 					}
 
 					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
-					console.log(sumsByColumn)
+					//console.log(sumsByColumn)
 
-					const results_table = document.getElementById('container_results')
-					let table_results = '<table class="table table-dark text-center table-sm"><thead>'
-
+					const results_table = document.getElementById('container_results');
+					let table_results = '<table class="table table-dark text-center table-sm"><thead>';
+					
 					for (let i = 0; i < array_players.length; i++) {
-						table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`
+						table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`;
 					}
-
-					table_results += '<tr>'
-
+					
+					table_results += '<tr>';
+					
+					const minColumnValue = Math.min(...sumsByColumn);
+					
 					for (let j = 0; j < sumsByColumn.length; j++) {
 						table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
 						</td>`
@@ -131,19 +133,19 @@ if (document.getElementById('scores_table')) {
 				}
 				// check lowest value of array of sums
 
-				let nombre_jugadores = array_players.map(({ nombre }) => nombre)
+				// let nombre_jugadores = array_players.map(({ nombre }) => nombre)
 
-				const numbers = sumsByColumn
-				const names = nombre_jugadores
-				let leading_player = 0
+				// const numbers = sumsByColumn
+				// const names = nombre_jugadores
+				// let leading_player = 0
 
-				for (let i = 1; i < sumsByColumn.length; i++) {
-					if (sumsByColumn[i] < sumsByColumn[leading_player]) {
-						leading_player = i
-					}
-				}
+				// for (let i = 1; i < sumsByColumn.length; i++) {
+				// 	if (sumsByColumn[i] < sumsByColumn[leading_player]) {
+				// 		leading_player = i
+				// 	}
+				// }
 
-				console.log(`Lider: ${names[leading_player]} - ${numbers[leading_player]} puntos.`)
+				// console.log(`Lider: ${names[leading_player]} - ${numbers[leading_player]} puntos.`)
 			})
 			// Get the saved value from local storage and set the selected option
 			const savedValue = localStorage.getItem(select.id)

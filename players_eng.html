@@ -36,39 +36,28 @@
 			</div>
 		</nav>
 		<div class="container fade_in">
-			<h4 class="my-4 text-center text-light">Type the names of the players:</h4>
-
-			<form id="players_form">
-				<div class="input-group mb-3">
-					<span class="input-group-text">Player 1:</span>
-					<input type="text" class="form-control text-uppercase" id="player_1" oninput="enable_btngame()" aria-describedby="basic-addon3" />
-				</div>
-				<div class="input-group mb-3">
-					<span class="input-group-text">Player 2:</span>
-					<input type="text" class="form-control text-uppercase" id="player_2" aria-describedby="basic-addon3" />
-				</div>
-				<div class="input-group mb-3">
-					<span class="input-group-text">Player 3:</span>
-					<input type="text" class="form-control text-uppercase" id="player_3" aria-describedby="basic-addon3" />
-				</div>
-				<div class="input-group mb-3">
-					<span class="input-group-text">Player 4:</span>
-					<input type="text" class="form-control text-uppercase" id="player_4" aria-describedby="basic-addon3" />
-				</div>
-				<div class="input-group mb-3">
-					<span class="input-group-text">Player 5:</span>
-					<input type="text" class="form-control text-uppercase" id="player_5" aria-describedby="basic-addon3" />
-				</div>
-				<div class="d-flex justify-content-center mt-5">
-					<button type="submit" class="d-none" id="start_game" onclick="goto_scores_eng()">
-						START GAME <i class="bi bi-arrow-right-circle"></i>
-					</button>
-				</div>
-			</form>
+			<!-- <h4 class="my-3 text-center text-light">How many players?</h4> -->
+			<div class="mt-3 align-content-center col-8 mx-auto">
+				<select class="form-select" id="inputSelector" onchange="updateInputs()">
+					<option value="0">How many players?</option>
+					<option value="1">1 Player</option>
+					<option value="2">2 Players</option>
+					<option value="3">3 Players</option>
+					<option value="4">4 Players</option>
+					<option value="5">5 Players</option>
+					<option value="6">6 Players</option>
+					<option value="7">7 Players</option>
+					<option value="8">8 Players</option>
+				</select>
+			</div>
+			<div class="col-8 mx-auto">
+				<h4 class="my-3 text-center text-light" id="players_list">Please enter the names:</h4>
+				<div id="inputContainer" class="fade_in"></div>
+			</div>
 		</div>
 
 		<nav class="navbar fixed-bottom firma">
-			<h6 class="text-light">&copy; 2023 - GermanCRC</h6>
+			<h6 class="text-light" id="yearFooter"></h6>
 		</nav>
 
 		<!-- Modal reglas ingles -->
