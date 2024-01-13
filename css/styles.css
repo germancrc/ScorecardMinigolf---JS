@@ -12,11 +12,31 @@ li {
 
 input{
 	height: 45px;
+	box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
 #inputSelector{
 	height: 45px;
+	box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
 }
+
+#players_list{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#btn_start_game{
+	height: 60px;
+	box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+
 
 .input-group-text{
 	font-size: 20px;
