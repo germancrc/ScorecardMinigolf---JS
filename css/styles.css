@@ -10,6 +10,44 @@ li {
 	margin-bottom: 1.6rem;
 }
 
+.welcome{
+	margin-top: 19vh;
+}
+
+/* text focus */
+.text-focus-in {
+	-webkit-animation: text-focus-in 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+ @-webkit-keyframes text-focus-in {
+	0% {
+	  -webkit-filter: blur(12px);
+			  filter: blur(12px);
+	  opacity: 0;
+	}
+	100% {
+	  -webkit-filter: blur(0px);
+			  filter: blur(0px);
+	  opacity: 1;
+	}
+  }
+  @keyframes text-focus-in {
+	0% {
+	  -webkit-filter: blur(12px);
+			  filter: blur(12px);
+	  opacity: 0;
+	}
+	100% {
+	  -webkit-filter: blur(0px);
+			  filter: blur(0px);
+	  opacity: 1;
+	}
+  }
+  
+  /* text focus end */
+
+
 input{
 	height: 45px;
 	box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
@@ -17,7 +55,7 @@ input{
 	-moz-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
-#inputSelector{
+#inputSelector, #lang_select{
 	height: 45px;
 	box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
@@ -69,15 +107,19 @@ input{
 	margin-top: 11vh;
 }
 
+#welcome, #lang_picker, #players_list {
+	text-shadow: 2px 3px 2px rgba(0,0,0,0.6);
+}
+
 #btn_continue_esp,
 #btn_continue_eng,
 #start_game {
 	letter-spacing: 0.15rem;
 	height: 3.8rem;
 	font-size: large;
-	box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75);
-	-webkit-box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75);
-	-moz-box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75);
+	box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
 .btn_shadow {
@@ -94,6 +136,38 @@ input{
 	/* box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75);
 	-webkit-box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75);
 	-moz-box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75); */
+}
+
+.table-container {
+	max-width: 100%;  
+	overflow-x: auto;  
+}
+
+.table-container table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.table-container th, .table-container td {
+	padding: 8px;
+	text-align: center;
+}
+
+.table-container th {
+	position: sticky;
+	top: 0;
+	z-index: 2;
+}
+
+.table-container th:first-child {
+	left: 0;
+	z-index: 3;
+}
+
+.table-container td:first-child {
+	position: sticky;
+	left: 0; 
+	z-index: 1;
 }
 
 

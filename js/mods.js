@@ -1,18 +1,54 @@
 //cambiar texto bienvenida
 if (document.getElementById('welcome')) {
-	const texto = document.getElementById('welcome')
-	const idiomas = ['Bienvenido!', 'Welcome!']
-	let index = 0
+	const texto = document.getElementById('welcome');
+	const idiomas = ['Bienvenido!', 'Welcome!'];
+	let index = 0;
+  
+	setInterval(() => {
+	  texto.textContent = idiomas[index];
+  
+	  // Añade la clase de animación al elemento
+	  texto.classList.add('text-focus-in');
+  
+	  // Elimina la clase de animación después de 1 segundo (1000 milisegundos)
+	  setTimeout(() => {
+		texto.classList.remove('text-focus-in');
+	  }, 1000);
+  
+	  // Actualiza el índice para el siguiente idioma
+	  index = (index + 1) % idiomas.length;
+	}, 3000);
+  }
+  
+
+//cambiar texto lang picker
+if (document.getElementById('lang_picker')) {
+	const texto_lang = document.getElementById('lang_picker')
+	const idiomas_picker = ['Por favor seleccione su idioma', 'Please select your language']
+	let indice = 0
 
 	setInterval(() => {
-		texto.textContent = idiomas[index]
-		index = (index + 1) % idiomas.length
+		texto_lang.textContent = idiomas_picker[indice]
+			  // Añade la clase de animación al elemento
+			  texto_lang.classList.add('text-focus-in');
+  
+			  // Elimina la clase de animación después de 1 segundo (1000 milisegundos)
+			  setTimeout(() => {
+				texto_lang.classList.remove('text-focus-in');
+			  }, 1000);
+		  
+		indice = (indice + 1) % idiomas_picker.length
 	}, 3000)
 }
 
+
 //year footer
-let yearFooter = new Date().getFullYear();
-document.getElementById("yearFooter").innerHTML = '\u00A9 ' + yearFooter + ' - GermanCRC';
+let yearFooter = "";
+
+if(yearFooter){
+	let yearFooter = new Date().getFullYear();
+	document.getElementById("yearFooter").innerHTML = '\u00A9 ' + yearFooter + ' - GermanCRC';
+}
 
 //FECHA
 let objectDate = new Date()
@@ -38,17 +74,7 @@ if (document.getElementById('fecha_esp')) {
 	fecha_esp.textContent = day + ' de ' + mes_nomb + ' ' + year
 }
 
-//cambiar texto lang picker
-if (document.getElementById('lang_picker')) {
-	const texto_lang = document.getElementById('lang_picker')
-	const idiomas_picker = ['Por favor seleccione su idioma', 'Please select your language']
-	let indice = 0
 
-	setInterval(() => {
-		texto_lang.textContent = idiomas_picker[indice]
-		indice = (indice + 1) % idiomas_picker.length
-	}, 3000)
-}
 
 //Elegir idioma
 function change_language() {
@@ -111,16 +137,7 @@ function enable_btngame() {
 	}
 }
 
-//ir  SCORES INGLES
-function goto_scores_eng() {
-	window.location.href = '/scores_eng.html'
-	localStorage.clear()
-}
-//ir  SCORES ESP
-function goto_scores_esp() {
-	window.location.href = '/scores_esp.html'
-	localStorage.clear()
-}
+
 
 //ir  PLAYERS ENG
 function goto_players_eng() {
@@ -132,7 +149,9 @@ function goto_players_esp() {
 }
 
 let players_list = document.getElementById('players_list');
-players_list.style.display = "none";
+if(players_list){
+	players_list.style.display = "none";
+}
 
 function updateInputs() {
 	const inputContainer = document.getElementById('inputContainer');

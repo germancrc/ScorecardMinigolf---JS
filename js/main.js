@@ -1,185 +1,210 @@
 //VARIABLES GLOBALES
 
-const players_form = document.getElementById('players_form')
+// const players_form = document.getElementById('players_form')
 
-let array_players = []
+let jugadores = []
 let sumsByColumn = []
 
-//FUNCIONES
-
-const crear_jugador = (nombre) => {
-	let jugador = {
-		nombre: nombre,
-	}
-
-	array_players.push(jugador)
-
-	return jugador
+//ir  SCORES INGLES
+function goto_scores_eng() {
+	window.location.href = '/scores_eng.html'
+}
+//ir  SCORES ESP
+function goto_scores_esp() {
+	window.location.href = '/scores_esp.html'
+	localStorage.clear()
 }
 
-const guardar_jugador = () => {
-	localStorage.setItem('jugador', JSON.stringify(array_players))
+//CREAR JUGADOR
+function crear_jugador() {
+    jugadores = [];
+
+    const selectedValue = document.getElementById('inputSelector').value;
+
+    for (let i = 0; i < selectedValue; i++) {
+        const inputId = `player_${i + 1}`;
+        const playerName = document.getElementById(inputId).value;
+
+        // Crear un objeto con la propiedad 'nombre'
+        const jugador = {
+            nombre: playerName
+        };
+
+        jugadores.push(jugador);
+    }
+
+    console.log('Jugadores:', jugadores);
+
+    guardar_jugador();
+    goto_scores_eng();
+}
+  
+//GUARDAR
+function guardar_jugador(){
+	localStorage.setItem('jugador', JSON.stringify(jugadores))
 }
 
 if (document.getElementById('scores_table')) {
 	const scores_table = document.getElementById('scores_table')
-	const mostrar_tabla_jugadores = () => {
-		scores_table.innerHTML = ''
-		const holes = 18
-		array_players = JSON.parse(localStorage.getItem('jugador'))
-		if (array_players === null) {
-			array_players = []
-		} else {
-			let tableHtml = '<table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">#</th>'
+	document.addEventListener('DOMContentLoaded', mostrar_tabla_jugadores)
+}
 
-			for (let i = 0; i < array_players.length; i++) {
-				tableHtml += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.trim().slice(0, 4)}</th>`
-			}
+//tabla jugadores
+function mostrar_tabla_jugadores() {
+    // Limpiar el contenido existente en la tabla
+    scores_table.innerHTML = '';
 
-			tableHtml += '</tr></thead><tbody>'
+    // Obtener la cantidad de hoyos
+    const holes = 18;
 
-			for (let i = 1; i <= holes; i++) {
-				tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="hole_numbers align-middle col-1 fw-bold">${i}</td>`
+    // Obtener la lista de jugadores desde el almacenamiento local
+    jugadores = JSON.parse(localStorage.getItem('jugador'));
 
-				for (let j = 0; j < array_players.length; j++) {
-					if (array_players.length === 5) {
-						tableHtml += `<td > <select class="form-select px-2 my-2 player${j + 1}" aria-label="Player score select" id="player${j + 1}-hole${i}" >
-						<option selected value="0">-</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						</select>
-						</td>`
-					} else {
-						tableHtml += `<td > <select class="form-select text-center my-2 player${j + 1}" aria-label="Player score select" id="player${
-							j + 1
-						}-hole${i}" >
-						<option selected value="0">-</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						</select>
-						</td>`
-					}
-				}
+    console.log(jugadores);
 
-				tableHtml += '</tr>'
-			}
+    // Si no hay jugadores, inicializar el array
+    if (jugadores === null) {
+        jugadores = [];
+    } else {
+        // Construir la estructura de la tabla
+        let tableHtml = '<div class="table-container"><table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">#</th>';
 
-			tableHtml += '</tbody></table>'
-			scores_table.innerHTML = tableHtml
+        // Crear las columnas de nombres de jugadores
+        for (let i = 0; i < jugadores.length; i++) {
+            tableHtml += `<th scope="col" class="text-uppercase col-2">${jugadores[i].nombre.slice(0, 4)}</th>`;
+        }
+
+        tableHtml += '</tr></thead><tbody>';
+
+        // Crear las filas de hoyos y selectores
+        for (let i = 1; i <= holes; i++) {
+            tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="hole_numbers align-middle col-1 fw-bold">${i}</td>`;
+
+            for (let j = 0; j < jugadores.length; j++) {
+                tableHtml += `<td><select class="form-select px-2 my-2 player${j + 1}" aria-label="Player score select" id="player${j + 1}-hole${i}" >
+                                <option selected value="0">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                            </td>`;
+            }
+
+            tableHtml += '</tr>';
+        }
+
+        tableHtml += '</tbody></table></div>';
+
+        // Establecer el contenido HTML de la tabla
+        scores_table.innerHTML = tableHtml;
+
+        // Llamar a funciones adicionales para configurar los selectores
+        getAllSellectElements();
+        getSelectChanges();
+    }
+}
+
+
+
+// Get all SELECT elements on the page
+function getAllSellectElements(){
+	scores_table.querySelectorAll('select').forEach((select) => {
+		// Get the saved value from local storage and set the selected option
+		const savedValue = localStorage.getItem(select.id)
+		if (savedValue) {
+			select.value = savedValue
 		}
 
-		// Get all SELECT elements on the page
-		scores_table.querySelectorAll('select').forEach((select) => {
-			select.addEventListener('change', (event) => {
-				// Get the ID of the select element
-				const selectId = event.target.id
+		getSelectChanges(select);
 
-				// Get the selected value of the select element
-				const selectValue = event.target.value
+		totalSumas = JSON.parse(localStorage.getItem('sumsByColumn'))
 
-				// Save the value to local storage with a specific key
-				localStorage.setItem(`${selectId}`, selectValue)
+		const results_table = document.getElementById('container_results')
+		let table_results = '<table class="table table-dark text-center table-sm"><thead>'
 
-				//SUMAR SELECTORS
-				const tbody = document.querySelector('tbody')
+		for (let i = 0; i < jugadores.length; i++) {
+			table_results += `<th scope="col" class="text-uppercase col-2">${jugadores[i]}</th>`
+		}
 
-				// Loop through each column (excluding the first column with player names)
+		table_results += '<tr>'
 
-				for (let i = 1; i < tbody.rows[0].cells.length; i++) {
-					let sum = 0
+		for (let j = 0; j < jugadores.length; j++) {
+			if (totalSumas === null || totalSumas === undefined) {
+				table_results += `<td class="align-middle fs-2 final_scores" >-
+					</td>`
+			} else {
+				table_results += `<td class="align-middle fs-2 final_scores" >${totalSumas[j]}
+					</td>`
+			}
+		}
 
-					// Loop through each row in the column and add up the value of the select element
-					for (let j = 0; j < tbody.rows.length; j++) {
-						const select = tbody.rows[j].cells[i].querySelector('select')
-						sum += Number(select.value)
-					}
+		table_results += '</tr></tbody></table>'
+		getSelectChanges()
+		results_table.innerHTML = table_results
+	})
+}
 
-					// Add the sum for the column to the array of sums
-					sumsByColumn.push(parseInt(sum))
-
-					if (sumsByColumn.length > array_players.length) {
-						sumsByColumn.shift()
-					}
-
-					localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
-					//console.log(sumsByColumn)
-
-					const results_table = document.getElementById('container_results');
-					let table_results = '<table class="table table-dark text-center table-sm"><thead>';
-					
-					for (let i = 0; i < array_players.length; i++) {
-						table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.slice(0, 4)}</th>`;
-					}
-					
-					table_results += '<tr>';
-					
-					const minColumnValue = Math.min(...sumsByColumn);
-					
-					for (let j = 0; j < sumsByColumn.length; j++) {
-						table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
-						</td>`
-					}
-
-					table_results += '</tr></tbody></table>'
-					results_table.innerHTML = table_results
+//EVENTO CAMBIOS SELECTIOR
+function getSelectChanges(select) {
+	if(select){
+		select.addEventListener('change', (event) => {
+			// Get the ID of the select element
+			const selectId = event.target.id
+	
+			// Get the selected value of the select element
+			const selectValue = event.target.value
+	
+			// Save the value to local storage with a specific key
+			localStorage.setItem(`${selectId}`, selectValue)
+	
+			//SUMAR SELECTORS
+			const tbody = document.querySelector('tbody')
+	
+			// Loop through each column (excluding the first column with player names)
+	
+			for (let i = 1; i < tbody.rows[0].cells.length; i++) {
+				let sum = 0
+	
+				// Loop through each row in the column and add up the value of the select element
+				for (let j = 0; j < tbody.rows.length; j++) {
+					const select = tbody.rows[j].cells[i].querySelector('select')
+					sum += Number(select.value)
 				}
-				// check lowest value of array of sums
-
-				// let nombre_jugadores = array_players.map(({ nombre }) => nombre)
-
-				// const numbers = sumsByColumn
-				// const names = nombre_jugadores
-				// let leading_player = 0
-
-				// for (let i = 1; i < sumsByColumn.length; i++) {
-				// 	if (sumsByColumn[i] < sumsByColumn[leading_player]) {
-				// 		leading_player = i
-				// 	}
-				// }
-
-				// console.log(`Lider: ${names[leading_player]} - ${numbers[leading_player]} puntos.`)
-			})
-			// Get the saved value from local storage and set the selected option
-			const savedValue = localStorage.getItem(select.id)
-			if (savedValue) {
-				select.value = savedValue
-			}
-
-			totalSumas = JSON.parse(localStorage.getItem('sumsByColumn'))
-
-			const results_table = document.getElementById('container_results')
-			let table_results = '<table class="table table-dark text-center table-sm"><thead>'
-
-			for (let i = 0; i < array_players.length; i++) {
-				table_results += `<th scope="col" class="text-uppercase col-2">${array_players[i].nombre.trim().slice(0, 4)}</th>`
-			}
-
-			table_results += '<tr>'
-
-			for (let j = 0; j < array_players.length; j++) {
-				if (totalSumas === null || totalSumas === undefined) {
-					table_results += `<td class="align-middle fs-2 final_scores" >-
-						</td>`
-				} else {
-					table_results += `<td class="align-middle fs-2 final_scores" >${totalSumas[j]}
-						</td>`
+	
+				// Add the sum for the column to the array of sums
+				sumsByColumn.push(parseInt(sum))
+	
+				if (sumsByColumn.length > jugadores.length) {
+					sumsByColumn.shift()
 				}
+	
+				localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
+	
+				const results_table = document.getElementById('container_results');
+				let table_results = '<table class="table table-dark text-center table-sm"><thead>';
+				
+				for (let i = 0; i < jugadores.length; i++) {
+					table_results += `<th scope="col" class="text-uppercase col-2">${jugadores[i].nombre.slice(0, 4)}</th>`;
+				}
+				
+				table_results += '<tr>';
+				
+				const minColumnValue = Math.min(...sumsByColumn);
+				
+				for (let j = 0; j < sumsByColumn.length; j++) {
+					table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
+					</td>`
+				}
+	
+				table_results += '</tr></tbody></table>'
+				results_table.innerHTML = table_results
 			}
-
-			table_results += '</tr></tbody></table>'
-			results_table.innerHTML = table_results
 		})
 	}
 
-	document.addEventListener('DOMContentLoaded', mostrar_tabla_jugadores)
 }
 
 //EVENT-LISTENERS
