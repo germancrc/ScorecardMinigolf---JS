@@ -68,7 +68,7 @@ function mostrar_tabla_jugadores() {
         jugadores = [];
     } else {
         // Construir la estructura de la tabla
-        let tableHtml = '<div class="table-container" id="table-container"><table class="table table-dark text-center table-sm"><thead><tr><th scope="col"></th>';
+        let tableHtml = '<div class="table-container" id="table-container"><table class="table table-dark text-center table-sm"><thead><tr><th scope="col" id="score_flag"><img src="/img/hole.png"></th>';
 
         // Crear las columnas de nombres de jugadores
         for (let i = 0; i < jugadores.length; i++) {

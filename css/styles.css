@@ -195,10 +195,12 @@ th{
     text-align: center;
 }
 
-.offcanvas{
-	width: 150px;
+#score_flag {
+    position: sticky;
+	top: 0;
+    left: 0;
+    z-index: 3;
 }
-
 .fade_in {
 	animation: myAnim 0.5s ease 0s 1 normal forwards;
 }
