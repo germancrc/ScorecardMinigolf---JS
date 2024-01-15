@@ -138,39 +138,66 @@ input{
 	-moz-box-shadow: 0px 0px 14px -3px rgba(255, 255, 255, 0.75); */
 }
 
-.table-container {
-	max-width: 100%;  
-	overflow-x: auto;  
+/* .table-container {
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 .table-container table {
-	border-collapse: collapse;
-	width: 100%;
+    border-collapse: collapse;
+    width: auto; 
 }
 
 .table-container th, .table-container td {
-	padding: 8px;
-	text-align: center;
+    padding: 12px;
+    text-align: center;
 }
 
 .table-container th {
-	position: sticky;
-	top: 0;
-	z-index: 2;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .table-container th:first-child {
-	left: 0;
-	z-index: 3;
+    left: 0;
+    z-index: 3;
 }
 
 .table-container td:first-child {
-	position: sticky;
-	left: 0; 
-	z-index: 1;
+    position: sticky;
+    left: 0;
+    z-index: 1;
 }
 
+.table-container tbody {
+    max-height: 300px; 
+} */
 
+th{
+	position: sticky;
+	top: 0;
+}
+
+#table-container {
+    max-height: calc(90vh - 130px);
+    overflow-x: auto;
+}
+
+#table-container td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+#table-container th, #table-container td {
+    padding: 12px;
+    text-align: center;
+}
+
+.offcanvas{
+	width: 150px;
+}
 
 .fade_in {
 	animation: myAnim 0.5s ease 0s 1 normal forwards;
@@ -190,14 +217,17 @@ input{
 
 .alto_score,
 .form-select {
-	height: 3.3rem;
+	height: 2.8rem;
 	font-size: larger;
 	font-weight: bold;
 }
 
+.selector_width{
+	width: 65px; 
+}
+
 .hole_numbers {
-	height: 3.3rem;
-	font-size: xx-large;
+	font-size: x-large;
 	font-weight: bold;
 }
 
@@ -206,7 +236,7 @@ input{
 }
 
 #scores_table {
-	margin-bottom: 11rem;
+	margin-bottom: 130px;
 }
 
 .final_scores {
@@ -217,6 +247,16 @@ input{
 .min-value {
     color: lightgreen;
 	font-weight: bolder;
+}
+
+/* .score_bottom{
+	box-shadow: 0px -6px 3px -2px rgba(66,158,255,0.53);
+-webkit-box-shadow: 0px -6px 3px -2px rgba(66,158,255,0.53);
+-moz-box-shadow: 0px -6px 3px -2px rgba(66,158,255,0.53);
+} */
+
+.col_width{
+	width: 20vw;
 }
 
 
@@ -234,6 +274,11 @@ input{
 }
 
 .firma {
+	display: flex;
+	justify-content: center;
+	color: white;
+}
+.center_divs {
 	display: flex;
 	justify-content: center;
 }

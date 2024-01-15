@@ -12,12 +12,12 @@ function goto_scores_eng() {
 //ir  SCORES ESP
 function goto_scores_esp() {
 	window.location.href = '/scores_esp.html'
-	localStorage.clear()
 }
 
 //CREAR JUGADOR
 function crear_jugador() {
     jugadores = [];
+    sumsByColumn = [];
 
     const selectedValue = document.getElementById('inputSelector').value;
 
@@ -35,6 +35,7 @@ function crear_jugador() {
 
     console.log('Jugadores:', jugadores);
 
+	localStorage.clear()
     guardar_jugador();
     goto_scores_eng();
 }
@@ -67,11 +68,11 @@ function mostrar_tabla_jugadores() {
         jugadores = [];
     } else {
         // Construir la estructura de la tabla
-        let tableHtml = '<div class="table-container"><table class="table table-dark table-striped text-center table-sm"><thead><tr><th scope="col">#</th>';
+        let tableHtml = '<div class="table-container" id="table-container"><table class="table table-dark text-center table-sm"><thead><tr><th scope="col"></th>';
 
         // Crear las columnas de nombres de jugadores
         for (let i = 0; i < jugadores.length; i++) {
-            tableHtml += `<th scope="col" class="text-uppercase col-2">${jugadores[i].nombre.slice(0, 4)}</th>`;
+            tableHtml += `<th scope="col" class="text-uppercase col_width">${jugadores[i].nombre.slice(0, 4)}</th>`;
         }
 
         tableHtml += '</tr></thead><tbody>';
@@ -81,7 +82,7 @@ function mostrar_tabla_jugadores() {
             tableHtml += `<tr scope="row" class="alto_score" id="row${i}"><td class="hole_numbers align-middle col-1 fw-bold">${i}</td>`;
 
             for (let j = 0; j < jugadores.length; j++) {
-                tableHtml += `<td><select class="form-select px-2 my-2 player${j + 1}" aria-label="Player score select" id="player${j + 1}-hole${i}" >
+                tableHtml += `<td><select class="form-select selector_width mx-auto player${j + 1}" aria-label="Player score select " id="player${j + 1}-hole${i}" >
                                 <option selected value="0">-</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -119,32 +120,55 @@ function getAllSellectElements(){
 		}
 
 		getSelectChanges(select);
-
-		totalSumas = JSON.parse(localStorage.getItem('sumsByColumn'))
-
-		const results_table = document.getElementById('container_results')
-		let table_results = '<table class="table table-dark text-center table-sm"><thead>'
-
-		for (let i = 0; i < jugadores.length; i++) {
-			table_results += `<th scope="col" class="text-uppercase col-2">${jugadores[i]}</th>`
-		}
-
-		table_results += '<tr>'
-
-		for (let j = 0; j < jugadores.length; j++) {
-			if (totalSumas === null || totalSumas === undefined) {
-				table_results += `<td class="align-middle fs-2 final_scores" >-
-					</td>`
-			} else {
-				table_results += `<td class="align-middle fs-2 final_scores" >${totalSumas[j]}
-					</td>`
-			}
-		}
-
-		table_results += '</tr></tbody></table>'
-		getSelectChanges()
-		results_table.innerHTML = table_results
+		mostrar_tabla_resultados();
 	})
+}
+
+function mostrar_tabla_resultados() {
+    // Obtener datos del almacenamiento local
+    jugadores = JSON.parse(localStorage.getItem('jugador'));
+    totalSumas = JSON.parse(localStorage.getItem('sumsByColumn'));
+
+    // Verificar si hay datos antes de proceder
+    if (!jugadores || !Array.isArray(jugadores) || jugadores.length === 0 || !totalSumas ) {
+        console.log("No hay datos válidos para mostrar.");
+        return;
+    }
+
+    // Encontrar el índice del jugador con la puntuación más baja
+    let indicePuntuacionMinima = 0;
+    for (let i = 1; i < totalSumas.length; i++) {
+        if (totalSumas[i] < totalSumas[indicePuntuacionMinima]) {
+            indicePuntuacionMinima = i;
+        }
+    }
+
+    const results_table = document.getElementById('container_results');
+    let table_results = '<table class="table table-dark text-center table-sm">';
+
+    // Encabezados de columna
+    table_results += '<th scope="col" class="text-uppercase col-4 fs-5">JUGADOR</th>';
+    table_results += '<th scope="col" class="text-uppercase col-4 fs-5">TOTAL</th>';
+    table_results += '<th scope="col" class="text-uppercase col-4 fs-5">LIDER</th>';
+
+    // Contenido de la tabla
+    for (let i = 0; i < jugadores.length; i++) {
+        table_results += '<tr>';
+        // Columna de jugadores
+        table_results += `<td class="align-middle fs-5 text-uppercase">${jugadores[i].nombre}</td>`;
+        // Columna de sumas totales
+        if (totalSumas === null || totalSumas === undefined) {
+            table_results += `<td class="align-middle fs-5 final_scores">-</td>`;
+        } else {
+            table_results += `<td class="align-middle fs-5 final_scores">${totalSumas[i]}</td>`;
+        }
+        // Columna de LIDER con imagen
+        table_results += `<td class="align-middle">${i === indicePuntuacionMinima ? '<img src="/img/trofeogolf.png" alt="LIDER" />' : ''}</td>`;
+        table_results += '</tr>';
+    }
+
+    table_results += '</tbody></table>';
+    results_table.innerHTML = table_results;
 }
 
 //EVENTO CAMBIOS SELECTIOR
@@ -183,58 +207,13 @@ function getSelectChanges(select) {
 	
 				localStorage.setItem('sumsByColumn', JSON.stringify(sumsByColumn))
 	
-				const results_table = document.getElementById('container_results');
-				let table_results = '<table class="table table-dark text-center table-sm"><thead>';
-				
-				for (let i = 0; i < jugadores.length; i++) {
-					table_results += `<th scope="col" class="text-uppercase col-2">${jugadores[i].nombre.slice(0, 4)}</th>`;
-				}
-				
-				table_results += '<tr>';
-				
-				const minColumnValue = Math.min(...sumsByColumn);
-				
-				for (let j = 0; j < sumsByColumn.length; j++) {
-					table_results += `<td class="align-middle fs-2 final_scores" >${sumsByColumn[j]}
-					</td>`
-				}
-	
-				table_results += '</tr></tbody></table>'
-				results_table.innerHTML = table_results
+				mostrar_tabla_resultados();
 			}
 		})
 	}
 
 }
 
-//EVENT-LISTENERS
-if (document.getElementById('players_form')) {
-	players_form.addEventListener('submit', (e) => {
-		e.preventDefault()
-		let player_1 = document.getElementById('player_1').value
-		let player_2 = document.getElementById('player_2').value
-		let player_3 = document.getElementById('player_3').value
-		let player_4 = document.getElementById('player_4').value
-		let player_5 = document.getElementById('player_5').value
 
-		if (player_1 != '') {
-			crear_jugador(player_1)
-		}
-		if (player_2 != '') {
-			crear_jugador(player_2)
-		}
-		if (player_3 != '') {
-			crear_jugador(player_3)
-		}
-		if (player_4 != '') {
-			crear_jugador(player_4)
-		}
-		if (player_5 != '') {
-			crear_jugador(player_5)
-		}
 
-		guardar_jugador()
 
-		players_form.reset()
-	})
-}

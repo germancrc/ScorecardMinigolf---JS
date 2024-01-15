@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- Google tag (gtag.js) -->
-		<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWDZKJJ713"></script>
-		<script>
-			window.dataLayer = window.dataLayer || []
-			function gtag() {
-				dataLayer.push(arguments)
-			}
-			gtag('js', new Date())
-
-			gtag('config', 'G-DWDZKJJ713')
-		</script> -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Players - Mini Golf Scorecard</title>
@@ -30,7 +19,6 @@
 	<body class="index_bng">
 		<nav class="navbar navbar-expand-lg navbar-dark">
 			<div class="container-fluid">
-				<!-- <a class="navbar-brand" href="/">MINI GOLF <i class="bi bi-list-ol"></i> SCORE </a> -->
 				<a class="navbar-brand" href="/"><img src="/img/logomini.png" alt="logo" class="logo" srcset="" /> </a>
 				<a class="nav-link text-light" aria-current="page" data-bs-toggle="modal" data-bs-target="#rules_eng"><i class="bi bi-journals"></i> RULES</a>
 			</div>
@@ -55,7 +43,7 @@
 				  </div>
 				  <div class="col-3">
 					<div class="mt-2 align-content-center mx-auto">
-						<button type="button" class="btn btn-primary" id="btn_start_game" onclick="crear_jugador()">START <i class="bi bi-arrow-right-circle"></i> </button>
+						<button type="button" class="btn btn-primary" id="btn_start_game" onclick="crear_jugador()" disabled>START <i class="bi bi-arrow-right-circle"></i> </button>
 					</div>
 				  </div>
 				</div>
@@ -67,9 +55,9 @@
 			</div>
 		</div>
 
-		<!-- <nav class="navbar fixed-bottom firma">
+		<nav class="navbar fixed-bottom navbar-dark firma">
 			<h6 class="text-light" id="yearFooter"></h6>
-		</nav> -->
+		</nav>
 
 		<!-- Modal reglas ingles -->
 		<div class="modal fade score_bg" id="rules_eng" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rules_engLabel" aria-hidden="true">

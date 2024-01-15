@@ -28,7 +28,7 @@
 		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
 	<body class="score_bg">
-		<nav class="navbar navbar-expand-lg navbar-dark">
+		<nav class="navbar navbar-expand-lg navbar-dark nav_top">
 			<div class="container-fluid">
 				<!-- <a class="navbar-brand" href="/">MINI GOLF <i class="bi bi-list-ol"></i> SCORE </a> -->
 				<a class="navbar-brand" href="/"><img src="/img/logomini.png" alt="logo" class="logo" srcset="" /> </a>
@@ -36,10 +36,10 @@
 			</div>
 		</nav>
 
-		<div class="container my-1">
+		<!-- <div class="container my-1"> -->
 			<div id="scores_table"></div>
 
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+			<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
 				<div class="col">
 					<div class="row">
 						<div class="col"><h6 class="text-light text-center py-1" id="results">RESULTS</h6></div>
@@ -48,8 +48,57 @@
 					<div class="row"><div id="container_results"></div></div>
 					<div class="row text-center"><h6 class="text-light" id="yearFooter"></h6></div>
 				</div>
+			</nav> -->
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom score_bottom">
+				<div class="col">
+					<div class="row" >
+						<div class="col p-2 center_divs">
+							<!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">VIEW SCORE</button> -->
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								VIEW SCORE
+							  </button>
+						</div>
+						<!-- <div class="col"><h6 id="fecha_eng" class="text-light text-center mb-3"></h6></div> -->
+					</div>
+					<!-- <div class="row"><div id="container_results"></div></div> -->
+					<hr class="text-light">
+					<div class="row text-center"><h6 class="text-light" id="yearFooter"></h6></div>
+				</div>
 			</nav>
+
+			<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="/img/hole.png"> SCORE</h1>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
+		<div class="modal-body">
+			<div id="container_results"></div>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CLOSE</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+		<!-- </div> -->
+
+<!-- 		
+
+		<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasExampleLabel"><img src="/img/hole.png"> SCORE</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body small">
+			<div id="container_results"></div>
+		</div>
+		</div> -->
 
 		<!-- Modal reglas ingles --->
 		<div class="modal fade" id="rules_eng" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rules_engLabel" aria-hidden="true">
